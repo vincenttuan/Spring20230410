@@ -16,6 +16,10 @@ public class TestHello {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans-config.xml");
 		Hello hello2 = (Hello)ctx.getBean("hello");
 		System.out.println(hello2);
+		Hello hello3 = ctx.getBean(Hello.class);
+		System.out.println(hello3);
+		Hello hello4 = ctx.getBean("hello", Hello.class); // 建議使用
+		System.out.println(hello4);
 		
 	}
 
