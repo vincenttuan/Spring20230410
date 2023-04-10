@@ -7,4 +7,6 @@
 	<bean id="hello1" scope="singleton" class="com.spring.core.session01.bean.Hello" />
 	<bean id="hello2" scope="singleton" class="com.spring.core.session01.bean.Hello" />
 	
+	<bean id="lotto" class="com.spring.core.session01.bean.Lotto" />
+	
 </beans>       
