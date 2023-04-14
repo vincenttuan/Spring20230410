@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:c="http://www.springframework.org/schema/c"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	
@@ -23,5 +25,15 @@
 		<constructor-arg index="1" value="女" />
 		<constructor-arg index="2" value="21" />
 	</bean>
+
+	<!-- 簡化版 p, c 注入 -->
+	<bean id="author4" 
+		  class="com.spring.core.session02.bean.Author" 
+		  p:name="Joe" p:sex="男" p:age="30" />
 	
+	<bean id="author5" 
+		  class="com.spring.core.session02.bean.Author" 
+		  c:name="Helen" c:sex="女" c:age="22" />
+		  
+		  
 </beans>
