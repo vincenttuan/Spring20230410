@@ -1,5 +1,7 @@
 package test.session02;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -31,7 +33,19 @@ public class BookTest {
 		System.out.println(book4);
 		System.out.println(book5);
 		
+		// 請問 book1~book5 書籍總價 = ?
+		int sum = List.of(book1, book2, book3, book4, book5)
+					  .stream()
+					  .mapToInt(Book::getPrice)
+					  .sum();
+		System.out.println(sum);
 		
-		
+		// 請問所有 book1 ~ book5 作者的平均年齡 = ?
+		double avg = List.of(book1, book2, book3, book4, book5)
+				  		 .stream()
+				  		 .mapToInt(b -> b.getAuthor().getAge())
+				  		 .average()
+				  		 .getAsDouble();
+		System.out.println(avg);
 	}
 }
