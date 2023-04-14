@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!-- Author -->
+	<bean id="author1" class="com.spring.core.session02.bean.Author" />
+	<bean id="author2" class="com.spring.core.session02.bean.Author">
+		<!-- 方法注入 setter -->
+		<property name="name">
+			<value>John</value>
+		</property>
+		<property name="sex">
+			<value>男</value>
+		</property>
+		<property name="age">
+			<value>28</value>
+		</property>
+	</bean>
+	
+</beans>       
