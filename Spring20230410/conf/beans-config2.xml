@@ -60,7 +60,17 @@
 	<bean id="book5" 
 		  c:name="C++" c:price="250" c:author-ref="author5"
 		  class="com.spring.core.session02.bean.Book" />
-
+	
+	<!-- 增加書籍 -->
+	<bean id="book6" 
+		  p:name="C#" p:price="400" p:author-ref="author4"
+		  class="com.spring.core.session02.bean.Book" />
+	<bean id="book7" 
+		  p:name="R" p:price="380" p:author-ref="author2"
+		  class="com.spring.core.session02.bean.Book" />
+	<bean id="book8" 
+		  p:name="Kotlin" p:price="480" p:author-ref="author4"
+		  class="com.spring.core.session02.bean.Book" />
 
 </beans>
 
