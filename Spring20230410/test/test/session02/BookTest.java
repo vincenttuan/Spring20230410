@@ -1,9 +1,12 @@
 package test.session02;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.w3c.dom.ls.LSOutput;
 
 import com.spring.core.session02.bean.Author;
 import com.spring.core.session02.bean.Book;
@@ -53,5 +56,19 @@ public class BookTest {
 				  		 .average()
 				  		 .getAsDouble();
 		System.out.println(avg);
+		
+		// 請印出每一個作者有哪些著作 ?
+		List<Book> books = List.of(book1, book2, book3, book4, book5, book6, book7, book8);
+		// 每一位作者有哪些著作 ?
+		Map<Author, List<Book>> authorBookMap = books.stream()
+				.collect(Collectors.groupingBy(Book::getAuthor));
+		System.out.println(authorBookMap);
+		// 印出
+		authorBookMap.forEach((author, authorBooks) -> {
+			System.out.print("作者:" + author.getName() + " 著作:");
+			authorBooks.forEach(authorBook -> System.out.print(authorBook.getName() + " "));
+			System.out.println();
+		});
+		
 	}
 }
