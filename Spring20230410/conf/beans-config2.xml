@@ -17,5 +17,11 @@
 			<value>28</value>
 		</property>
 	</bean>
+	<bean id="author3" class="com.spring.core.session02.bean.Author">
+		<!-- 建構子注入 -->
+		<constructor-arg index="0" value="Mary" />
+		<constructor-arg index="1" value="女" />
+		<constructor-arg index="2" value="21" />
+	</bean>
 	
-</beans>       
+</beans>
