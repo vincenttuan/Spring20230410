@@ -34,6 +34,37 @@
 	<bean id="author5" 
 		  class="com.spring.core.session02.bean.Author" 
 		  c:name="Helen" c:sex="女" c:age="22" />
-		  
-		  
+	
+	<!-- Book -->
+	<bean id="book1" class="com.spring.core.session02.bean.Book" />
+	<bean id="book2" class="com.spring.core.session02.bean.Book">
+		<!-- 方法注入 -->
+		<property name="name">
+			<value>Java</value>
+		</property>
+		<property name="price">
+			<value>500</value>
+		</property>
+		<property name="author" ref="author2" />
+	</bean>
+	<bean id="book3" class="com.spring.core.session02.bean.Book">
+		<!-- 建構子注入 -->
+		<constructor-arg index="0" value="Spring" />
+		<constructor-arg index="1" value="600" />
+		<constructor-arg index="2" ref="author3" />
+	</bean>
+	<!--  簡化 p, c 注入 -->
+	<bean id="book4" 
+		  p:name="Python" p:price="300" p:author-ref="author4"
+		  class="com.spring.core.session02.bean.Book" />
+	<bean id="book5" 
+		  c:name="C++" c:price="250" c:author-ref="author5"
+		  class="com.spring.core.session02.bean.Book" />
+
+
 </beans>
+
+
+
+
+
