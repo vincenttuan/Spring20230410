@@ -29,12 +29,14 @@ public class ClazzTest {
 		System.out.println(teacher2);
 		
 		// 1. teacher1 與 teacher2 各教授幾學分 ?
-		
-		
+		int sumOfCredit1 = teacher1.getClazzs().stream().mapToInt(Clazz::getCredit).sum();
+		int sumOfCredit2 = teacher2.getClazzs().stream().mapToInt(Clazz::getCredit).sum();
+		System.out.println(sumOfCredit1 + ", " + sumOfCredit2);
 		// 2. teacher1 與 teacher2 薪資各是多少 ?
 		//    薪資 = base + (總教授學分數*addition)
-		
-		
+		int totalOfSalary1 = teacher1.getSalary().get("base") + teacher1.getSalary().get("addition") * sumOfCredit1;
+		int totalOfSalary2 = teacher2.getSalary().get("base") + teacher1.getSalary().get("addition") * sumOfCredit2;
+		System.out.println(totalOfSalary1 + ", " + totalOfSalary2);
 	}
 
 }
