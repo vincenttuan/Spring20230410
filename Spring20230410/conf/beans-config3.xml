@@ -7,6 +7,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
+	<!-- 引用外部資源 -->
+	<context:property-placeholder location="data.properties" />
+	
+	<!-- 透過外部資源注入資料 -->
+	<bean id="clazz1"
+		  p:id="1"
+		  p:name="${clazz.name}" 
+		  p:credit="${clazz.credit}"
+		  class="com.spring.core.session03.bean.Clazz" />
 	
 </beans>
 
