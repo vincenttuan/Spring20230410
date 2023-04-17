@@ -71,7 +71,16 @@
 	<bean id="book8" 
 		  p:name="Kotlin" p:price="480" p:author-ref="author4"
 		  class="com.spring.core.session02.bean.Book" />
-
+	
+	<!-- Color, Size 手動配置 -->
+	<bean id="color" p:name="白" class="com.spring.core.session02.bean.Color" />
+	<bean id="size" p:name="A4" class="com.spring.core.session02.bean.Size" />
+	
+	<!-- Paper 自動配置-byType -->
+	<bean id="paper1"
+		  autowire="byType"
+		  class="com.spring.core.session02.bean.Paper" />
+	
 </beans>
 
 
