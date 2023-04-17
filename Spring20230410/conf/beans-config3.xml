@@ -13,8 +13,20 @@
 	<!-- 透過外部資源注入資料 -->
 	<bean id="clazz1"
 		  p:id="1"
-		  p:name="${clazz.name}" 
-		  p:credit="${clazz.credit}"
+		  p:name="${clazz.name1}" 
+		  p:credit="${clazz.credit1}"
+		  class="com.spring.core.session03.bean.Clazz" />
+	
+	<bean id="clazz2"
+		  p:id="2"
+		  p:name="${clazz.name2}" 
+		  p:credit="${clazz.credit2}"
+		  class="com.spring.core.session03.bean.Clazz" />
+	
+	<bean id="clazz3"
+		  p:id="3"
+		  p:name="${clazz.name3}" 
+		  p:credit="${clazz.credit3}"
 		  class="com.spring.core.session03.bean.Clazz" />
 	
 </beans>
