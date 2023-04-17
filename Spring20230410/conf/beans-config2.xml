@@ -75,17 +75,26 @@
 	<!-- Color, Size 手動配置 -->
 	<bean id="color" p:name="白" class="com.spring.core.session02.bean.Color" />
 	<bean id="size" p:name="A4" class="com.spring.core.session02.bean.Size" />
+	<bean id="color2" p:name="黑" class="com.spring.core.session02.bean.Color" />
+	<bean id="size2" p:name="B4" class="com.spring.core.session02.bean.Size" />
 	
 	<!-- Paper 自動配置-byType -->
+	<!-- 
 	<bean id="paper1"
 		  p:id="1"	
 		  autowire="byType"
 		  class="com.spring.core.session02.bean.Paper" />
-	
+	-->
 	<bean id="paper2"
 		  p:id="2"	
 		  autowire="constructor"
 		  class="com.spring.core.session02.bean.Paper" />
+	
+	<bean id="paper3"
+		  p:id="3"	
+		  autowire="byName"
+		  class="com.spring.core.session02.bean.Paper" />
+	
 </beans>
 
 
