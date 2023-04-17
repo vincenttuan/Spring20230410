@@ -12,5 +12,8 @@ public class PaperTest {
 		Paper paper1 = ctx.getBean("paper1", Paper.class);
 		System.out.println(paper1);
 		
+		Paper paper2 = ctx.getBean("paper2", Paper.class);
+		System.out.println(paper2);
+		
 	}
 }

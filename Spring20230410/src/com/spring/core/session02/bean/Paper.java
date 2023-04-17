@@ -3,7 +3,7 @@ package com.spring.core.session02.bean;
 public class Paper {
 	private Integer id; // 紙張編號 
 	private Color color; // 紙張顏色
-	private Size size; // 紙張尺寸
+	private Size size; // 紙張尺寸 
 	
 	public Paper() {
 	

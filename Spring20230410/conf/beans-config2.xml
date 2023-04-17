@@ -82,6 +82,10 @@
 		  autowire="byType"
 		  class="com.spring.core.session02.bean.Paper" />
 	
+	<bean id="paper2"
+		  p:id="2"	
+		  autowire="constructor"
+		  class="com.spring.core.session02.bean.Paper" />
 </beans>
 
 
