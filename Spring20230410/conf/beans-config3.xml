@@ -50,6 +50,41 @@
 			</set>
 		</property>
 	</bean>
+	
+	<!-- 講師 1 配置 -->
+	<bean id="teacher1" p:id="1" p:name="Bob" class="com.spring.core.session03.bean.Teacher">
+		<!-- Set 集合配置 -->
+		<property name="student">
+			<set>
+				<ref bean="student1" />
+				<ref bean="student2" />
+			</set>
+		</property>
+		<!-- List 集合配置 -->
+		<property name="clazz">
+			<list>
+				<ref bean="clazz1" />
+				<ref bean="clazz3" />
+			</list>
+		</property>
+		<!-- Map 集合配置（每一個元素是一個 entry -> key / value） -->
+		<property name="salary">
+			<map>
+				<entry key="base">
+					<value>50000</value>
+				</entry>
+				<entry key="addition">
+					<value>20000</value>
+				</entry>
+			</map>
+		</property>
+		
+	</bean>
+	
+	
+	<!-- 簡化集合配置 -->
+	
+	<!-- 講師 2 配置 -->
 </beans>
 
 
