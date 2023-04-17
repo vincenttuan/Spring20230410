@@ -78,6 +78,7 @@
 	
 	<!-- Paper 自動配置-byType -->
 	<bean id="paper1"
+		  p:id="1"	
 		  autowire="byType"
 		  class="com.spring.core.session02.bean.Paper" />
 	
