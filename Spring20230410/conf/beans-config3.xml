@@ -61,7 +61,7 @@
 			</set>
 		</property>
 		<!-- List 集合配置 -->
-		<property name="clazz">
+		<property name="clazzs">
 			<list>
 				<ref bean="clazz1" />
 				<ref bean="clazz3" />
