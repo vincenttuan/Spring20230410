@@ -54,7 +54,7 @@
 	<!-- 講師 1 配置 -->
 	<bean id="teacher1" p:id="1" p:name="Bob" class="com.spring.core.session03.bean.Teacher">
 		<!-- Set 集合配置 -->
-		<property name="student">
+		<property name="students">
 			<set>
 				<ref bean="student1" />
 				<ref bean="student2" />
