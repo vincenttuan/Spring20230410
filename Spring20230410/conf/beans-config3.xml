@@ -110,8 +110,15 @@
 		</entry>
 	</util:map>
 	
-	
 	<!-- 講師 2 配置 -->
+	<bean id="teacher2"
+		  p:id="2"
+		  p:name="Jean"
+		  p:students-ref="students" 
+		  p:clazzs-ref="clazzs"
+		  p:salary-ref="salary"
+		  class="com.spring.core.session03.bean.Teacher" />
+	
 </beans>
 
 
