@@ -28,6 +28,13 @@ public class ClazzTest {
 		System.out.println(teacher1);
 		System.out.println(teacher2);
 		
+		// 1. teacher1 與 teacher2 各教授幾學分 ?
+		
+		
+		// 2. teacher1 與 teacher2 薪資各是多少 ?
+		//    薪資 = base + (總教授學分數*addition)
+		
+		
 	}
 
 }
