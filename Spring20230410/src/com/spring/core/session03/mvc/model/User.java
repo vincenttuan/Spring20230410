@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component("member")
+@Component()
 @PropertySource("classpath:user.properties")
 public class User {
 	//@Value(value = "Mary")
