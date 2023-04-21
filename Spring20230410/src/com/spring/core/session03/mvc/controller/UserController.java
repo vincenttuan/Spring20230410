@@ -11,7 +11,7 @@ public class UserController {
 	private UserService userService;
 	
 	public void appendUser(User user) {
-		System.out.println("UserController call userService.addUser()");
+		System.out.println("1.UserController call userService.addUser()");
 		userService.addUser(user);
 	}
 	

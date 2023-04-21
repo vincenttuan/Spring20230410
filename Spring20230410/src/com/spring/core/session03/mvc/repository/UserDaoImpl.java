@@ -9,7 +9,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void createUser(User user) {
-		System.out.println("UserDao create user ok: " + user);
+		System.out.println("3.UserDao create user ok: " + user);
 	}
 	
 }
