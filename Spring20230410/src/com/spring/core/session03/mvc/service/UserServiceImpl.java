@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void addUser(User user) {
-		System.out.println("UserService call userDao.createUser");
+		System.out.println("UserService call userDao.createUser()");
 		userDao.createUser(user);
 	}
 
