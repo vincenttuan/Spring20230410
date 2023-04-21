@@ -1,5 +1,7 @@
 package com.spring.core.session03.mvc.model;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -19,4 +21,7 @@ public class User {
 	@Value("${user.nickname}")
 	private String[] nickname; // 暱稱
 	
+	//@Value(value = "#{${subjects: {'Program', 'English', 'Math'}}}")
+	@Value("${user.subjects}")
+	private Set<String> subjects; // 科目
 }
