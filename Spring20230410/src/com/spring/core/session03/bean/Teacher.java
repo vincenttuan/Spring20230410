@@ -11,6 +11,19 @@ public class Teacher {
 	private List<Clazz> clazzs; // 授課科目
 	private Map<String, Integer> salary; // 薪資組合
 	
+	public Teacher() {
+		
+	}
+	
+	public Teacher(Integer id, String name, Set<Student> students, List<Clazz> clazzs, Map<String, Integer> salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.students = students;
+		this.clazzs = clazzs;
+		this.salary = salary;
+	}
+
 	public Integer getId() {
 		return id;
 	}

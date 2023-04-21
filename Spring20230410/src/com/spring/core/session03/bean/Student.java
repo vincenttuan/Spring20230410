@@ -7,6 +7,19 @@ public class Student {
 	private String name; // 姓名
 	private Set<Clazz> clazzs; // 選課
 	
+	public Student() {
+		
+	}
+	
+	public Student(Integer id, String name, Set<Clazz> clazzs) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.clazzs = clazzs;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}

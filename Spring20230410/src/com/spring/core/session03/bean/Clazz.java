@@ -5,6 +5,19 @@ public class Clazz {
 	private String name; // 課程名稱
 	private Integer credit; // 課程學分
 	
+	public Clazz() {
+		
+	}
+	
+	public Clazz(Integer id, String name, Integer credit) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.credit = credit;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}
