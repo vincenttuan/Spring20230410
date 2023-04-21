@@ -12,6 +12,10 @@ public class MVCTest {
 		//User user = ctx.getBean("member",  User.class);
 		User user = ctx.getBean("user",  User.class);
 		System.out.println(user);
+		
+		// 將 user 藉由 MVC 模擬加入到資料庫
+		// UserController -> UserService -> UserDao
+		
 	}
 
 }
