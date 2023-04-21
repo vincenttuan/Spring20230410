@@ -13,28 +13,28 @@ import org.springframework.stereotype.Component;
 @Component()
 @PropertySource("classpath:user.properties")
 public class User {
-	//@Value(value = "Mary")
-	@Value("${user.username}")
+	@Value(value = "Mary")
+	//@Value("${user.username}")
 	private String username; // 名稱
 	
-	//@Value(value = "17")
-	@Value("${user.age}")
+	@Value(value = "17")
+	//@Value("${user.age}")
 	private Integer age; // 年齡
 	
-	//@Value(value = "#{${nickname: {'Sunny', 'Beauty', 'Grace'}}}")
-	@Value("${user.nickname}")
+	@Value(value = "#{${nickname: {'Sunny', 'Beauty', 'Grace'}}}")
+	//@Value("${user.nickname}")
 	private String[] nickname; // 暱稱
 	
-	//@Value(value = "#{${subjects: {'Program', 'English', 'Math'}}}")
-	@Value("${user.subjects}")
+	@Value(value = "#{${subjects: {'Program', 'English', 'Math'}}}")
+	//@Value("${user.subjects}")
 	private Set<String> subjects; // 科目
 	
-	//@Value(value = "#{${scores: {100, 90, 80}}}")
-	@Value("#{'${user.scores}'.split(',')}")
+	@Value(value = "#{${scores: {100, 90, 80}}}")
+	//@Value("#{'${user.scores}'.split(',')}")
 	private List<Integer> scores; // 成績
 	
-	//@Value(value = "#{${hobbies: {1:'Draw', 2:'Makeup'}}}")
-	@Value("#{${user.hobbies}}") // 注意: 要包在 #{ } 內
+	@Value(value = "#{${hobbies: {1:'Draw', 2:'Makeup'}}}")
+	//@Value("#{${user.hobbies}}") // 注意: 要包在 #{ } 內
 	private Map<String, String> hobbies; // 興趣
 
 	public String getUsername() {
