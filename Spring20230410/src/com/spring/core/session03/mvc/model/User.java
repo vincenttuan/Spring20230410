@@ -9,5 +9,14 @@ import org.springframework.stereotype.Component;
 public class User {
 	//@Value(value = "Mary")
 	@Value("${user.username}")
-	private String username;
+	private String username; // 名稱
+	
+	//@Value(value = "17")
+	@Value("${user.age}")
+	private Integer age; // 年齡
+	
+	//@Value(value = "#{${nickname: {'Sunny', 'Beauty', 'Grace'}}}")
+	@Value("${user.nickname}")
+	private String[] nickname; // 暱稱
+	
 }
