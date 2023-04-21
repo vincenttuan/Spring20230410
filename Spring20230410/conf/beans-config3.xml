@@ -125,6 +125,9 @@
 		  destroy-method="destory"
 		  class="com.spring.core.session03.bean.DBConn" />
 	
+	<!-- CarFactory 工廠建立 -->
+	<bean id="carFactory" class="com.spring.core.session03.bean.CarFactory" />
+	
 </beans>
 
 

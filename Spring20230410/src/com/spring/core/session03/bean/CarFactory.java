@@ -10,7 +10,7 @@ public class CarFactory implements FactoryBean<Car> {
 	public Car getObject() throws Exception {
 		Random random = new Random();
 		int price = random.nextInt(300_0000);
-		 Car car = new Car("BMW", price);
+		Car car = new Car("BMW", price);
 		return car;
 	}
 
