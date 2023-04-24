@@ -23,9 +23,16 @@ public class DynProxy {
 		Class<?>[] interfaces = object.getClass().getInterfaces();
 		// 3. 處理代理的實現
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
+			// 公用邏輯-Before: 前置通知
+			System.out.println("Before: 前置通知");
+			
 			Object resultObj = null;
-			// 調用業務邏輯
+			// 業務邏輯-調用
 			resultObj = method.invoke(object, args); // 第一個參數要放:被代理對象
+			
+			// 公用邏輯-Before: 後置通知
+			System.out.println("Before: 後置通知");
+			
 			return resultObj;
 		};
 		proxyObj = Proxy.newProxyInstance(loader, interfaces, handler);
