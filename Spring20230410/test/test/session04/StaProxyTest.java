@@ -1,5 +1,6 @@
 package test.session04;
 
+import com.spring.core.session04.proxy.sta.Child;
 import com.spring.core.session04.proxy.sta.Man;
 import com.spring.core.session04.proxy.sta.Person;
 import com.spring.core.session04.proxy.sta.PersonProxy;
@@ -15,8 +16,10 @@ public class StaProxyTest {
 		// 透過代理物件建構
 		Person man = new PersonProxy(new Man());
 		Person woman = new PersonProxy(new Woman());
+		Person child = new PersonProxy(new Child());
 		man.work();
 		woman.work();
+		child.work();
 	}
 
 }
