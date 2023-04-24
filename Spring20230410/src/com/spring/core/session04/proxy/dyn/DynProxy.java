@@ -24,7 +24,7 @@ public class DynProxy {
 		// 3. 處理代理的實現
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
 			// 公用邏輯-Before: 前置通知
-			System.out.println("Before: 前置通知");
+			
 			
 			Object resultObj = null;
 			try {
@@ -32,10 +32,10 @@ public class DynProxy {
 				resultObj = method.invoke(object, args); // 第一個參數要放:被代理對象
 			} catch(Exception e) {
 				// 公用邏輯-Exception: 異常例外通知
-				System.out.println("Exception: 異常例外通知-" + e);
+				
 			} finally {
 				// 公用邏輯-Before: 後置通知
-				System.out.println("Before: 後置通知");
+				
 			}
 			return resultObj;
 		};
