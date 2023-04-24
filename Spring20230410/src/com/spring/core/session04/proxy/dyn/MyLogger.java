@@ -17,6 +17,8 @@ public class MyLogger {
 	}
 	
 	// End: 後置通知
+	// resultObj 就是方法的回傳值
+	// 若是 void 方法則回傳 null
 	public static void  end(Object resultObj) {
 		System.out.printf("Before: 後置通知 resultObj:%s\n", resultObj);
 	}
