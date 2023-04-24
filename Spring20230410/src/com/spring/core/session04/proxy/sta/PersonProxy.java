@@ -16,7 +16,14 @@ public class PersonProxy implements Person {
 		// 公用邏輯
 		System.out.println("出門戴口罩");
 		// 執行被代理者的業務方法
-		person.work();
+		try {
+			person.work();
+		} catch (Exception e) {
+			// 公用例外邏輯
+			System.out.println(e);
+			System.out.println("去買口罩");
+			System.out.println("將口罩戴回");
+		}
 		// 公用邏輯
 		System.out.println("回家脫口罩");
 	}
