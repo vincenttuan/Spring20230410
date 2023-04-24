@@ -6,6 +6,7 @@ public class Child implements Person {
 	public void work() {
 		// 業務邏輯
 		System.out.println("上學去");
+		throw new RuntimeException("忘記帶口罩");
 	}
 	
 }
