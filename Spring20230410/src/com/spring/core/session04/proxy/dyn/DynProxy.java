@@ -35,7 +35,7 @@ public class DynProxy {
 				MyLogger.throwing(e);
 			} finally {
 				// 公用邏輯-End: 後置通知
-				MyLogger.end();
+				MyLogger.end(resultObj);
 			}
 			return resultObj;
 		};

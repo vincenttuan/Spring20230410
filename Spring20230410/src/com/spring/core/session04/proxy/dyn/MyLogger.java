@@ -17,7 +17,7 @@ public class MyLogger {
 	}
 	
 	// End: 後置通知
-	public static void  end() {
-		System.out.println("Before: 後置通知");
+	public static void  end(Object resultObj) {
+		System.out.printf("Before: 後置通知 resultObj:%s\n", resultObj);
 	}
 }
