@@ -25,7 +25,7 @@ public class DynProxy {
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
 			Object resultObj = null;
 			// 調用業務邏輯
-			resultObj = method.invoke(proxy, args);
+			resultObj = method.invoke(object, args); // 第一個參數要放:被代理對象
 			return resultObj;
 		};
 		proxyObj = Proxy.newProxyInstance(loader, interfaces, handler);
