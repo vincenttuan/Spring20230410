@@ -26,7 +26,7 @@ public class User {
 	private String[] nickname; // 暱稱
 	
 	@Value(value = "#{${subjects: {'Program', 'English', 'Math'}}}")
-	//@Value("${user.subjects}")
+	//@Value("#{'${user.subjects}'.split(',')}")
 	private Set<String> subjects; // 科目
 	
 	@Value(value = "#{${scores: {100, 90, 80}}}")
