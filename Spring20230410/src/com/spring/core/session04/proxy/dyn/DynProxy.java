@@ -27,12 +27,16 @@ public class DynProxy {
 			System.out.println("Before: 前置通知");
 			
 			Object resultObj = null;
-			// 業務邏輯-調用
-			resultObj = method.invoke(object, args); // 第一個參數要放:被代理對象
-			
-			// 公用邏輯-Before: 後置通知
-			System.out.println("Before: 後置通知");
-			
+			try {
+				// 業務邏輯-調用
+				resultObj = method.invoke(object, args); // 第一個參數要放:被代理對象
+			} catch(Exception e) {
+				// 公用邏輯-Exception: 異常例外通知
+				System.out.println("Exception: 異常例外通知-" + e);
+			} finally {
+				// 公用邏輯-Before: 後置通知
+				System.out.println("Before: 後置通知");
+			}
 			return resultObj;
 		};
 		proxyObj = Proxy.newProxyInstance(loader, interfaces, handler);
