@@ -24,7 +24,7 @@ public class DynProxy {
 		// 3. 處理代理的實現
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
 			// 公用邏輯-Before: 前置通知
-			MyLogger.before();
+			MyLogger.before(method, args);
 			
 			Object resultObj = null;
 			try {
