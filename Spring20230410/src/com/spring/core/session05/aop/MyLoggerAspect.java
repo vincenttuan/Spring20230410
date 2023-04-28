@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -44,5 +45,9 @@ public class MyLoggerAspect {
 		System.out.println("後置通知");
 	}
 	
-	
+	// 異常通知(可以透過 throwing 來設定異常通知的變數名稱)
+	@AfterThrowing(value = "pt()", throwing = "ex")
+	public void afterThrowingAdvice(Exception ex) { // 方法參數 ex 必須與 throwing = "ex" 內容名稱設定相同
+		System.out.printf("異常通知 - ex: %s\n", ex);
+	}
 }
