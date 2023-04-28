@@ -29,8 +29,8 @@ public class MyLoggerAspect {
 	//@Before(value = "execution(public Integer com.spring.core.session05.aop.*.*(..))") // 忽略類別名,方法名與參數
 	//@Before(value = "execution(* com.spring.core.session05.aop.*.*(..))") // 忽略權限,回傳值,類別名,方法名與參數
 	//@Before(value = "execution(* *(..))") // 全部攔截
-	//@Before(value = "pt()") // 透過切入點(Pointcut)方法來配置
-	@Before(value = "pt() && !pt2()") // 支援 &&, ||, !
+	@Before(value = "pt()") // 透過切入點(Pointcut)方法來配置
+	//@Before(value = "pt() && !pt2()") // 支援 &&, ||, !
 	public void beforeAdvice(JoinPoint joinPoint) { // JoinPoint 連接點
 		String methodName = joinPoint.getSignature().getName(); // 取得連接點的方法名稱
 		Object[] args = joinPoint.getArgs(); // 取得方法參數
