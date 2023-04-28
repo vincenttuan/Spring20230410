@@ -5,7 +5,8 @@ public class EnhancerHello extends Hello {
 
 	@Override // 覆寫 / 攔截(Interceptor)
 	public String sayHello(String str) {
-		return super.sayHello(str) + " 請出示實聯簡訊證明 !";
+		System.out.println("請出示實聯證明");
+		return super.sayHello(str);
 	}
 	
 }
