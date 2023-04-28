@@ -3,6 +3,7 @@ package com.spring.core.session05.aop;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -36,5 +37,12 @@ public class MyLoggerAspect {
 		Object[] args = joinPoint.getArgs(); // 取得方法參數
 		System.out.printf("前置通知 - 方法名稱: %s 參數: %s\n", methodName, Arrays.toString(args));
 	}
+	
+	// 後置通知(無論是否有例外都會執行, 會自動配置在 Spring-AOP 機制中的 finally 區段中)
+	@After(value = "pt()")
+	public void afterAdvice() {
+		System.out.println("後置通知");
+	}
+	
 	
 }
