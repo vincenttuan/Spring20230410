@@ -1,6 +1,6 @@
 package test.session04;
 
-import com.spring.core.session04.proxy.echancer.Hello;
+import com.spring.core.session04.proxy.enhancer.Hello;
 
 public class HelloTest {
 
