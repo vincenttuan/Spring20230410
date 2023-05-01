@@ -20,6 +20,13 @@ public class MySecurityAspect {
 		// joinPoint 的回傳值
 		Object result = null;
 		
+		try {
+			// 執行 joinPoint 的業務邏輯
+			result = joinPoint.proceed();
+		} catch (Throwable e) {
+			
+		}
+		
 		return result;
 	}
 }
