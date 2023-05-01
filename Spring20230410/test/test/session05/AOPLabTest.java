@@ -11,7 +11,12 @@ public class AOPLabTest {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AOPConfig.class);
 		Performance dancer = ctx.getBean("dancer", Performance.class);
-		dancer.perform();
+		try {
+			dancer.perform();
+		} catch (Exception e) {
+			System.out.println("Dancer 想轉換跑道");
+			
+		}
 	}
 
 }
