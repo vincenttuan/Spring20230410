@@ -1,5 +1,8 @@
 package com.spring.core.session05.aop;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ComputerImpl implements Computer {
 	@Override
 	public Integer add(Integer x, Integer y) {
