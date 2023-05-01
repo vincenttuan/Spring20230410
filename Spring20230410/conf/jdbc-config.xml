@@ -35,6 +35,16 @@
 		<property name="maxIdleTimeExcessConnections" value="50" /> <!-- -1 表示沒有限制 -->
 		<property name="debugUnreturnedConnectionStackTraces" value="true" />
 	</bean>
+	
+	<!-- jdbc template -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- named parameter jdbc template -->
+	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+    	<constructor-arg ref="dataSource"/>
+	</bean>
 </beans>
 
 
