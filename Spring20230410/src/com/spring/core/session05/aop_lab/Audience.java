@@ -31,9 +31,10 @@ public class Audience {
 		System.out.println("觀眾-拍手鼓掌");
 	}
 	
-	@AfterReturning(value = "pt()")
-	public void exit() {
-		System.out.println("觀眾-離開會場,美好的一天");
+	@AfterReturning(value = "pt()", returning = "result")
+	// 若方法無回傳值(void), 則 result 會得到 null
+	public void exit(Object result) {
+		System.out.printf("觀眾-離開會場,美好的一天 ! result=%s\n", result);
 	}
 	
 	@AfterThrowing(value = "pt()", throwing = "ex")
