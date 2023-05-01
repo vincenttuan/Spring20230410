@@ -13,7 +13,7 @@ public class AOPTest2 {
 		Computer computer = ctx.getBean("computerImpl", ComputerImpl.class);
 		System.out.println(computer.add(20, 10));
 		System.out.println(computer.div(50, 5));
-		
+		System.out.println(computer.div(50, 0));
 	}
 
 }

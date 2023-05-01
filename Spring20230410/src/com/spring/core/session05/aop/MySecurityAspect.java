@@ -28,8 +28,14 @@ public class MySecurityAspect {
 		try {
 			// 執行 joinPoint 的業務邏輯
 			result = joinPoint.proceed();
-		} catch (Throwable e) {
-			
+			// 2. 環繞通知-返回通知
+			System.out.printf("環繞通知-返回通知: result=%s\n", result);
+		} catch (Throwable ex) {
+			// 3. 環繞通知-異常通知
+			System.err.printf("環繞通知-異常通知: ex=%s\n", ex);
+		} finally {
+			// 4. 環繞通知-後置通知
+			System.out.printf("環繞通知-後置通知\n");
 		}
 		
 		return result;
