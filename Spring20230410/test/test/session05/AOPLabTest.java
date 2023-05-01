@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.spring.core.session05.aop_lab.AOPConfig;
 import com.spring.core.session05.aop_lab.Performance;
+import com.spring.core.session05.aop_lab.Singer;
 
 public class AOPLabTest {
 
@@ -16,6 +17,10 @@ public class AOPLabTest {
 		} catch (Exception e) {
 			System.out.println("Dancer 想轉換跑道");
 			
+			System.out.println("Dancer 轉 Singer");
+			
+			Singer singer = (Singer)dancer; // 橫向轉型
+			singer.sing();
 		}
 	}
 
