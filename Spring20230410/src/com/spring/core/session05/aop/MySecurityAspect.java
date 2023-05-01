@@ -1,5 +1,7 @@
 package com.spring.core.session05.aop;
 
+import java.util.Arrays;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,7 +21,10 @@ public class MySecurityAspect {
 	public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
 		// joinPoint 的回傳值
 		Object result = null;
-		
+		// 1. 環繞通知-前置通知
+		String methodName = joinPoint.getSignature().getName();
+		Object[] args = joinPoint.getArgs();
+		System.out.printf("環繞通知-前置通知: 方法名稱: %s 參數列: %s\n", methodName, Arrays.toString(args));
 		try {
 			// 執行 joinPoint 的業務邏輯
 			result = joinPoint.proceed();
