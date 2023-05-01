@@ -2,6 +2,7 @@ package com.spring.core.session05.aop_lab;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -33,5 +34,10 @@ public class Audience {
 	@AfterReturning(value = "pt()")
 	public void exit() {
 		System.out.println("觀眾-離開會場,美好的一天");
+	}
+	
+	@AfterThrowing(value = "pt()", throwing = "ex")
+	public void exception(Throwable ex) {
+		System.err.printf("觀眾-看到 %s 目瞪口呆 @@\n", ex.getMessage());
 	}
 }
