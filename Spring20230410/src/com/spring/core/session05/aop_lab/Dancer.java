@@ -1,6 +1,9 @@
 package com.spring.core.session05.aop_lab;
 
+import org.springframework.stereotype.Component;
+
 // 舞者
+@Component
 public class Dancer implements Performance {
 
 	@Override
