@@ -14,7 +14,10 @@ public interface EmpDao {
 	
 	// 查詢單筆 
 	Optional<Emp> getOne(Integer eid); // 單筆查詢
+	
 	Integer count(); // 查詢資料筆數
+	
+	Double getAvgOfAge(); // 查詢員工平均年齡
 	
 	// 新增單筆
 	int create(String ename, Integer age);

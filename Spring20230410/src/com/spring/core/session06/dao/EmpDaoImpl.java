@@ -51,6 +51,13 @@ public class EmpDaoImpl implements EmpDao {
 		Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
 		return count;
 	}
+	
+	@Override
+	public Double getAvgOfAge() {
+		String sql = "select AVG(age) from emp";
+		Double avg = jdbcTemplate.queryForObject(sql, Double.class);
+		return avg;
+	}
 
 	@Override
 	public int create(String ename, Integer age) {

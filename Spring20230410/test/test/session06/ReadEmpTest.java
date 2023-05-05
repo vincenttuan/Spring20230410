@@ -39,6 +39,8 @@ public class ReadEmpTest {
 								 .getAsDouble();
 		System.out.println(avgOfAge);
 		
+		double avgOfAge2 = empDao.getAvgOfAge();
+		System.out.println(avgOfAge2);
 	}
 
 }
