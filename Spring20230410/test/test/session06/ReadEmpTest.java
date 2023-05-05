@@ -22,7 +22,7 @@ public class ReadEmpTest {
 		List<Emp> empList = empDao.queryEmps();
 		System.out.println(empList);
 		// 查詢單筆
-		Optional<Emp> optEmp1 = empDao.getOne(1);
+		Optional<Emp> optEmp1 = empDao.getOne(5);
 		if(optEmp1.isPresent()) { // 確認是否有資料
 			Emp emp = optEmp1.get(); // 取得實體
 			System.out.println(emp);
