@@ -29,6 +29,9 @@ public class ReadEmpTest {
 		} else {
 			System.out.println("資料不存在");
 		}
+		// 查詢總筆數
+		Integer count = empDao.count();
+		System.out.println(count);
 	}
 
 }

@@ -47,8 +47,9 @@ public class EmpDaoImpl implements EmpDao {
 
 	@Override
 	public Integer count() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select count(*) from emp";
+		Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
+		return count;
 	}
 
 	@Override
