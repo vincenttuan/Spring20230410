@@ -21,8 +21,9 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public Optional<Emp> getBigOne() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Emp> emps = queryAll();
+		Integer maxOfAge = emps.stream().mapToInt(Emp::getAge).max().getAsInt();
+		return emps.stream().filter(emp -> emp.getAge().equals(maxOfAge)).findAny();
 	}
 	
 }
