@@ -68,8 +68,9 @@ public class EmpDaoImpl implements EmpDao {
 
 	@Override
 	public int[] batchCreate(List<Object[]> list) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "Insert into emp(ename, age) values(?, ?)";
+		int[] rowcounts = jdbcTemplate.batchUpdate(sql, list);
+		return rowcounts;
 	}
 
 	@Override
