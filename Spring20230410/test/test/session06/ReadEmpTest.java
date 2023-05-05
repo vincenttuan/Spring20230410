@@ -7,16 +7,19 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.spring.core.session06.dao.EmpDao;
+import com.spring.core.session06.entity.Emp;
 
 public class ReadEmpTest {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("jdbc-config.xml");
 		EmpDao empDao = ctx.getBean(EmpDao.class);
-		// 查詢多筆
+		// 查詢多筆 I
 		List<Map<String, Object>> list = empDao.query();
 		System.out.println(list);
-		
+		// 查詢多筆 II
+		List<Emp> empList = empDao.queryEmps();
+		System.out.println(empList);
 
 	}
 
