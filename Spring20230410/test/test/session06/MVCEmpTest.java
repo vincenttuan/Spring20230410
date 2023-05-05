@@ -7,7 +7,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.spring.core.session06.controller.EmpController;
-import com.spring.core.session06.dao.EmpDao;
 import com.spring.core.session06.entity.Emp;
 
 public class MVCEmpTest {
