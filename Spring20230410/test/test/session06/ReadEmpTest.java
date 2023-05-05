@@ -2,6 +2,7 @@ package test.session06;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -20,7 +21,14 @@ public class ReadEmpTest {
 		// 查詢多筆 II
 		List<Emp> empList = empDao.queryEmps();
 		System.out.println(empList);
-
+		// 查詢單筆
+		Optional<Emp> optEmp1 = empDao.getOne(1);
+		if(optEmp1.isPresent()) { // 確認是否有資料
+			Emp emp = optEmp1.get(); // 取得實體
+			System.out.println(emp);
+		} else {
+			System.out.println("資料不存在");
+		}
 	}
 
 }
