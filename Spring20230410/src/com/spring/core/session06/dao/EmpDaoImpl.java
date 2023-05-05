@@ -75,14 +75,16 @@ public class EmpDaoImpl implements EmpDao {
 
 	@Override
 	public int update(Integer eid, String ename, Integer age) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "Update emp set ename=?, age=? where eid=?";
+		int rowcount = jdbcTemplate.update(sql, ename, age, eid);
+		return rowcount;
 	}
 
 	@Override
 	public int delete(Integer eid) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "Delete from emp where eid=?";
+		int rowcount = jdbcTemplate.update(sql, eid);
+		return rowcount;
 	}
 	
 }
