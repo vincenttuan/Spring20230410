@@ -7,5 +7,5 @@ import com.spring.core.session06.entity.Emp;
 
 public interface EmpService {
 	List<Emp> queryAll();
-	Optional<Emp> findOne();
+	Optional<Emp> getBigOne(); // 得到最大年齡的 Emp
 }
