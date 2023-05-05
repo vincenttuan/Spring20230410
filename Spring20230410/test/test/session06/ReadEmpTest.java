@@ -32,6 +32,13 @@ public class ReadEmpTest {
 		// 查詢總筆數
 		Integer count = empDao.count();
 		System.out.println(count);
+		// Lab 查出所有員工的平均年齡
+		double avgOfAge = empList.stream()
+								 .mapToInt(Emp::getAge)
+								 .average()
+								 .getAsDouble();
+		System.out.println(avgOfAge);
+		
 	}
 
 }
