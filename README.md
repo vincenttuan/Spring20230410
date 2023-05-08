@@ -38,7 +38,7 @@ create table stock ( -- stock(庫存)
     book_amount integer -- 數量
 );
 
-create table wallet (
+create table wallet ( -- wallet(錢包)
     username varchar(50), -- 客戶名稱
     balance integer -- 餘額
 );
