@@ -3,6 +3,8 @@ package com.spring.core.session07.tx.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class BookDaoImpl implements BookDao {
@@ -18,7 +20,7 @@ public class BookDaoImpl implements BookDao {
 		Integer bookPrice = jdbcTemplate.queryForObject(sql, args, Integer.class);
 		return bookPrice;
 	}
-
+	
 	@Override
 	public Integer updateStock(Integer bookId) {
 		// 1. 檢查庫存
@@ -33,7 +35,7 @@ public class BookDaoImpl implements BookDao {
 		int rowcount = jdbcTemplate.update(sql, args);
 		return rowcount;
 	}
-
+	
 	@Override
 	public Integer updateWallet(String username, Integer price) {
 		// 1. 檢查客戶餘額
