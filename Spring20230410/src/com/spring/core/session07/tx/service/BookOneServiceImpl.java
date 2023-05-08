@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.spring.core.session07.tx.dao.BookDao;
 
 @Service
-public class BookServiceImpl implements BookService {
+public class BookOneServiceImpl implements BookOneService {
 
 	@Autowired
 	private BookDao bookDao;
@@ -22,13 +22,6 @@ public class BookServiceImpl implements BookService {
 		bookDao.updateStock(bookId);
 		// 3. 修改 Wallet 餘額
 		bookDao.updateWallet(username, price);
-	}
-
-	@Override
-	public void buyMany(String username, Integer... bookIds) {
-		for(Integer bookId : bookIds) {
-			buyOne(username, bookId);
-		}	
 	}
 	
 }

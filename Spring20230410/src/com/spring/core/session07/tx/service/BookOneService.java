@@ -1,6 +1,5 @@
 package com.spring.core.session07.tx.service;
 
-public interface BookService {
+public interface BookOneService {
 	void buyOne(String username, Integer bookId);
-	void buyMany(String username, Integer... bookIds);
 }
