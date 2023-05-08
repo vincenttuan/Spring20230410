@@ -16,3 +16,30 @@ insert into emp(ename, age) values('john', 28);
 insert into emp(ename, age) values('mary', 30);
 insert into emp(ename, age) values('bobo', 29);
 </pre>
+MySQL 預設隔離級別
+<pre>
+查詢
+SELECT @@transaction_ISOLATION;
+修改
+SET SESSION transaction_isolation='SERIALIZABLE';
+</pre>
+建立 MySQL 交易資料表
+<pre>
+-- book(書籍)、stock(庫存)、wallet(錢包)
+
+create table book ( -- book(書籍)
+    book_id integer, -- 書號
+    book_name varchar(50), -- 書名
+    book_price integer -- 價格
+);
+
+create table stock ( -- stock(庫存)
+    book_id integer, -- 書號
+    book_amount integer -- 數量
+);
+
+create table wallet (
+    username varchar(50), -- 客戶名稱
+    balance integer -- 餘額
+);
+</pre>
