@@ -10,7 +10,7 @@ public class BuyOneBookTest {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("jdbc-config.xml");
 		BookController controller = ctx.getBean(BookController.class);
-		controller.buyBook("john", 1);
+		controller.buyBook("john", 2);
 		
 
 	}
