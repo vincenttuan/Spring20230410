@@ -16,6 +16,7 @@ public class BookManyServiceImpl implements BookManyService {
 	@Autowired
 	private BookOneService bookOneService;
 	
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void buyMany(String username, Integer... bookIds) {
 		for(Integer bookId : bookIds) {
