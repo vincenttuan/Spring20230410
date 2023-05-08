@@ -21,6 +21,7 @@
 	
 	<!-- 讓 spring 自動掃描有 @ 的資源 -->
 	<context:component-scan base-package="com.spring.core.session06" />
+	<context:component-scan base-package="com.spring.core.session07" />
 	<!-- 讓 Spring AOP 切面自動代理 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<!-- load db.properties -->
