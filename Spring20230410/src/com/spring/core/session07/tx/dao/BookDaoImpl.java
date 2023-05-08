@@ -16,7 +16,7 @@ public class BookDaoImpl implements BookDao {
 		String sql = "select book_price from book where bood_id=?";
 		Object[] args= {bookId};
 		Integer bookPrice = jdbcTemplate.queryForObject(sql, args, Integer.class);
-		return bookPrice;
+		return null;
 	}
 
 	@Override
