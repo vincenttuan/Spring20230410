@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.spring.core.session07.tx.exception.InsufficientAmount;
+import com.spring.core.session07.tx.exception.InsufficientStock;
+
 @Repository
 public class BookDaoImpl implements BookDao {
 	
@@ -28,7 +31,7 @@ public class BookDaoImpl implements BookDao {
 		Object[] args = {bookId};
 		Integer currentAmount = jdbcTemplate.queryForObject(sql, args, Integer.class);
 		if(currentAmount <= 0) { // 目前庫存不足
-			throw new RuntimeException("庫存量不足, amount=" + currentAmount);
+			throw new InsufficientStock("庫存量不足, amount=" + currentAmount);
 		}
 		// 2. 修改庫存(數量 - 1)
 		sql = "update stock set book_amount = book_amount - 1 where book_id=?";
@@ -43,7 +46,7 @@ public class BookDaoImpl implements BookDao {
 		Object[] args = {username};
 		int currentBalance = jdbcTemplate.queryForObject(sql, args, Integer.class);
 		if(currentBalance < price) { // 若目前餘額不夠買書 
-			throw new RuntimeException("帳戶餘額不足, balacne=" + currentBalance + ", book price=" + price);
+			throw new InsufficientAmount("帳戶餘額不足, balacne=" + currentBalance + ", book price=" + price);
 		}
 		// 2. 修改客戶餘額
 		sql = "update wallet set balance = balance - ? where username = ?";
