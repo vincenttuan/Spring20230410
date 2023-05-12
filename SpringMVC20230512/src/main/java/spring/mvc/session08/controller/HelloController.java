@@ -52,6 +52,8 @@ public class HelloController {
 	 * 路徑: /mvc/age?age=18&age=19&age=24
 	 * 計算平均年齡
 	 */
+	@RequestMapping("/age")
+	@ResponseBody
 	public String getAvgOfAge(@RequestParam("age") List<Integer> ageList) {
 		double avg = ageList.stream()
 							.mapToInt(Integer::intValue)
