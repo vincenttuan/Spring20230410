@@ -49,7 +49,7 @@ public class HelloController {
 	
 	/*
 	 * 4. 多筆參數
-	 * 路徑: /mvc/age?age=18&age=19&age=24
+	 * 路徑: /mvc/hello/age?age=18&age=19&age=24
 	 * 計算平均年齡
 	 */
 	@RequestMapping("/age")
