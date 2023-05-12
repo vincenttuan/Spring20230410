@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.core.session07.tx.dao.BookDao;
+import com.spring.core.session07.tx.exception.InsufficientAmount;
+import com.spring.core.session07.tx.exception.InsufficientStock;
 
 @Service
 public class BookOneServiceImpl implements BookOneService {
@@ -13,7 +15,10 @@ public class BookOneServiceImpl implements BookOneService {
 	@Autowired
 	private BookDao bookDao;
 	
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(
+			propagation = Propagation.REQUIRED,
+			rollbackFor = {InsufficientStock.class, InsufficientAmount.class}
+	)
 	@Override
 	public void buyOne(String username, Integer bookId) {
 		// 1. 查詢書籍價格
