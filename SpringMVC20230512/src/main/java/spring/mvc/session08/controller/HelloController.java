@@ -69,9 +69,8 @@ public class HelloController {
      * 路徑：/mvc/hello/exam?score=80&score=100&score=50
      * 求出最高分、最低分、平均與總分
 	 */
-	//@RequestMapping(value = "/exam", 
-	//				produces = {"text/plain;charset=utf-8","text/html;charset=utf-8"})
-	@RequestMapping(value = "/exam")
+	@RequestMapping(value = "/exam", 
+					produces = {"text/plain;charset=utf-8","text/html;charset=utf-8"})
 	@ResponseBody
 	public String getExamStat(@RequestParam("score") List<Integer> scores) {
 		IntSummaryStatistics stat = scores.stream()
