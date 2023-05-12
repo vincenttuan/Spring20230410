@@ -8,6 +8,7 @@
 <title>Index</title>
 </head>
 <body>
+	Session08:<p>
 	<ul>
 		<li><a href="./mvc/hello/welcome">/mvc/hello/welcome</a></li>
 		<li><a href="./mvc/hello/sayhi?name=John&age=18">/mvc/hello/sayhi?name=John&age=18</a></li>
