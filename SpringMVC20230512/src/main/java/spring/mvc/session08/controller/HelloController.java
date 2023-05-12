@@ -1,5 +1,7 @@
 package spring.mvc.session08.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,6 +45,20 @@ public class HelloController {
 					  @RequestParam("w") Double w) {
 		double bmiValue = w / Math.pow(h/100, 2);
 		return String.format("bmi = %.2f", bmiValue);
+	}
+	
+	/*
+	 * 4. 多筆參數
+	 * 路徑: /mvc/age?age=18&age=19&age=24
+	 * 計算平均年齡
+	 */
+	public String getAvgOfAge(@RequestParam("age") List<Integer> ageList) {
+		double avg = ageList.stream()
+							.mapToInt(Integer::intValue)
+							.average()
+							.getAsDouble();
+		
+		return String.format("avg = %.1f", avg);
 	}
 	
 	
