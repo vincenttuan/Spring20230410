@@ -32,6 +32,12 @@ public class HelloController {
 		return data;
 	}
 	
+	/*
+	 * 3. Lab 練習
+	 * 路徑: /mvc/hello/bmi?h=170.0&w=60.0
+	 * 請設計一個 bmi 方法執行上述路徑後會得到 bmi = 20.76
+	 * */
+	
 	
 	
 	
