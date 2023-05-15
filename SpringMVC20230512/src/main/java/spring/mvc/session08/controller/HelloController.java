@@ -153,6 +153,18 @@ public class HelloController {
 	public String any() {
 		return "Any";
 	}
+	
+	/* 
+	 * 11. @PathVariable (正則表示式)
+	 * 路徑：/mvc/hello/student/vincent-18
+	 * 路徑：/mvc/hello/student/anita-19
+	 */
+	@RequestMapping(value = "/student/{name:[a-z]+}-{age:\\d+}")
+	@ResponseBody
+	public String getName(@PathVariable("name") String name, @PathVariable("age") String age) {
+		return name + " " + age;
+	}
+	
 }
 
 
