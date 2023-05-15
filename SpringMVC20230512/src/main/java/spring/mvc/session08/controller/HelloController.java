@@ -117,7 +117,11 @@ public class HelloController {
 	public String getJavaExam(@PathVariable("score") Integer score) {
 		return String.format("%d %s", score, (score>=60)?"pass":"fail");
 	}
-	
+	/* 
+	 * 9. Lab 練習: @PathVariable + @RequestParam 混用練習
+     * 路徑：/mvc/hello/calc/add?x=30&y=20  -> Result：50
+     * 路徑：/mvc/hello/calc/sub?x=30&y=20  -> Result：10
+	 */
 	
 }
 
