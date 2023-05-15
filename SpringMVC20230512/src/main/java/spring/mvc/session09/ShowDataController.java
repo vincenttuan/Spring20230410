@@ -1,6 +1,9 @@
 package spring.mvc.session09;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +47,21 @@ public class ShowDataController {
 		model.addAttribute("data", "Data");
 		model.addAttribute("data1", "Data1");
 		model.addAttribute("data2", "Data2");
+		return "show_data"; // View
+	}
+	
+	// 返回集合/數組資料
+	@RequestMapping("/case4")
+	public String case4(Model model) { // Model
+		String[] names = {"John", "Mary"};
+		List<Integer> ages = List.of(18, 19);
+		Map<String, Integer> fruits = new LinkedHashMap<>();
+		fruits.put("西瓜", 80);
+		fruits.put("芒果", 60);
+		// 將資料注入到 model 中
+		model.addAttribute("data", names);
+		model.addAttribute("data1", ages);
+		model.addAttribute("data2", fruits);
 		return "show_data"; // View
 	}
 	
