@@ -121,7 +121,28 @@ public class HelloController {
 	 * 9. Lab 練習: @PathVariable + @RequestParam 混用練習
      * 路徑：/mvc/hello/calc/add?x=30&y=20  -> Result：50
      * 路徑：/mvc/hello/calc/sub?x=30&y=20  -> Result：10
+     * 路徑：/mvc/hello/calc/sub?y=20       -> Result：-20
+     * 路徑：/mvc/hello/calc/add            -> Result：0
+     * 路徑：/mvc/hello/calc/sub            -> Result：0
+     * 請設計一個 calc 方法
 	 */
+	@RequestMapping(value = "/calc/{exp}")
+	@ResponseBody
+	public String calc(@PathVariable("exp") String exp,
+					   @RequestParam(value = "x", required = false, defaultValue = "0")  Integer x,
+					   @RequestParam(value = "y", required = false, defaultValue = "0")  Integer y) {
+		int result = 0;
+		switch (exp) {
+			case "add":
+				result = x + y;
+				break;
+			case "sub":
+				result = x - y;
+				break;
+		}
+		return String.format("Result: %d", result);
+	}
+	
 	
 }
 
