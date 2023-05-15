@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import spring.mvc.session08.entity.User;
+
 @Controller
 @RequestMapping(value = "/hello")
 public class HelloController {
@@ -93,6 +95,16 @@ public class HelloController {
 		return person.toString();
 	}
 	
+	/* 
+	 * 7. 參數自動匹配物件
+     * 路徑：/mvc/hello/user?name=John&score=90&age=18&pass=true
+     * 路徑：/mvc/hello/user?name=Mary&score=40&age=17&pass=false
+	 */
+	@RequestMapping("/user")
+	@ResponseBody
+	public String getUser(User user) {
+		return user.toString();
+	}
 }
 
 
