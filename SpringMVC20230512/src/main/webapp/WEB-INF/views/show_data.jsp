@@ -12,6 +12,7 @@
 <body>
 	<h1>Show Data</h1>
 	data: ${ data } <p>
-	
+	data1: ${ data1 } <p>
+	data2: ${ data2 } <p>
 </body>
 </html>

@@ -20,4 +20,16 @@ public class ShowDataController {
 		return mav;
 	}
 	
+	@RequestMapping("/case2")
+	public ModelAndView case2() {
+		String view = "/WEB-INF/views/show_data.jsp"; // 渲染地(View)
+		String data = "Data";
+		String data1 = "Data1";
+		String data2 = "Data2";
+		return new ModelAndView(view, "data", data)
+					.addObject("data1", data1)
+					.addObject("data2", data2);
+	}
+	
+	
 }
