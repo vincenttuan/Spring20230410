@@ -1,5 +1,6 @@
 package spring.mvc.session09;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -54,16 +55,24 @@ public class ShowDataController {
 	@RequestMapping("/case4")
 	public String case4(Model model) { // Model
 		String[] names = {"John", "Mary"};
+		List<String> nameList = Arrays.asList(names);
 		List<Integer> ages = List.of(18, 19);
 		Map<String, Integer> fruits = new LinkedHashMap<>();
 		fruits.put("西瓜", 80);
 		fruits.put("芒果", 60);
 		// 將資料注入到 model 中
-		model.addAttribute("data", names);
+		model.addAttribute("data", nameList);
 		model.addAttribute("data1", ages);
 		model.addAttribute("data2", fruits);
 		return "show_data"; // View
 	}
+	
+	// 重新定向 redirect
+	@RequestMapping("/case5")
+	public String case5() {
+		return "redirect:/index.jsp?name=SpringMVC";
+	}
+	
 	
 	
 }
