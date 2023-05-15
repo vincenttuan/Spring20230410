@@ -15,6 +15,8 @@
 		<li><a href="./mvc/hello/bmi?h=170.0&w=60.0">/mvc/hello/bmi?h=170.0&w=60.0</a></li>
 		<li><a href="./mvc/hello/age?age=18&age=19&age=24">/mvc/hello/age?age=18&age=19&age=24</a></li>
 		<li><a href="./mvc/hello/exam?score=80&score=100&score=50">/mvc/hello/exam?score=80&score=100&score=50</a></li>
+		<li><a href="./mvc/hello/person?name=John&score=90&age=18&pass=true">/mvc/hello/person?name=John&score=90&age=18&pass=true</a></li>
+		<li><a href="./mvc/hello/person?name=Mary&score=40&age=17&pass=false">/mvc/hello/person?name=Mary&score=40&age=17&pass=false</a></li>
 	</ul>
 </body>
 </html>
