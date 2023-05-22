@@ -25,6 +25,16 @@ public class LottoService {
 		return lottos;
 	}
 	
+	// 修改指定紀錄
+	public void update(int index) {
+		lottos.set(index, getRandomLotto());
+	}
+	
+	// 刪除指定紀錄
+	public void delete(int index) {
+		lottos.remove(index);
+	}
+	
 	// 透過電腦選號產生號碼 
 	private Set<Integer> getRandomLotto() {
 		// 樂透 539: 1 ~ 39 取出不重複的 5 個數字
