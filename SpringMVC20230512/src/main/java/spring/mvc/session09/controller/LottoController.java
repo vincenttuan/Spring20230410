@@ -42,6 +42,14 @@ public class LottoController {
 		return "redirect:../"; // 重導至 lotto 首頁
 	}
 	
+	// 修改 lotto II
+	@GetMapping("/update/{row_index}/{col_index}")
+	public String update(@PathVariable("row_index") Integer rowIndex, 
+						 @PathVariable("col_index") Integer colIndex) {
+		lottoService.update(rowIndex, colIndex);
+		return "redirect:../../"; // 重導至 lotto 首頁
+	}
+	
 	// 刪除 lotto
 	@GetMapping("/delete/{index}")
 	public String delete(@PathVariable("index") Integer index) {

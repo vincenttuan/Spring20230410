@@ -1,5 +1,6 @@
 package spring.mvc.session09.service;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Random;
@@ -28,6 +29,14 @@ public class LottoService {
 	// 修改指定紀錄
 	public void update(int index) {
 		lottos.set(index, getRandomLotto());
+	}
+	
+	// 修改指定紀錄II
+	public void update(int rowIndex, int columnIndex) {
+		Set<Integer> row = lottos.get(rowIndex);
+		List<Integer> rowList = new ArrayList<Integer>(row);
+		rowList.set(columnIndex, 99);
+		lottos.set(rowIndex, new LinkedHashSet<Integer>(rowList));
 	}
 	
 	// 刪除指定紀錄
