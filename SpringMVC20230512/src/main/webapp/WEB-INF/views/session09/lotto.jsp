@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,17 @@
 				<td>次數</td>
 				<c:forEach var="st" items="${ stat }">
 					<td nowrap>${ st.value }</td>
+				</c:forEach>
+			</tr>
+			<tr>
+				<td>%</td>
+				<c:forEach var="st" items="${ stat }">
+					<td nowrap>
+						<fmt:formatNumber 
+							type="number"
+							value="${ (st.value / (fn:length(lottos)*5)) * 100 }"
+							maxFractionDigits="2"/>
+					</td>
 				</c:forEach>
 			</tr>
 		</tbody>
