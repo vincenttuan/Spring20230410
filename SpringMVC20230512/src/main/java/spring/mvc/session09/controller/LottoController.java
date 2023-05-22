@@ -39,13 +39,13 @@ public class LottoController {
 	@GetMapping("/update/{index}")
 	public String update(@PathVariable("index") Integer index) {
 		lottoService.update(index);
-		return "redirect:./"; // 重導至 lotto 首頁
+		return "redirect:../"; // 重導至 lotto 首頁
 	}
 	
 	// 刪除 lotto
 	@GetMapping("/delete/{index}")
 	public String delete(@PathVariable("index") Integer index) {
 		lottoService.delete(index); // 重導至 lotto 首頁
-		return "redirect:./";
+		return "redirect:../";
 	}
 }

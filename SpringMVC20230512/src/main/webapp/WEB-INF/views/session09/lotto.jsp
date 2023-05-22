@@ -44,7 +44,7 @@
 					</c:forEach>
 					<td>
 						<button type="button" 
-								onclick="window.location.href='${pageContext.request.contextPath}/mvc/lotto/update/${status.index}}';"
+								onclick="window.location.href='${pageContext.request.contextPath}/mvc/lotto/update/${status.index}';"
 								class="pure-button pure-button-primary">更新</button>
 					</td>
 					<td>
