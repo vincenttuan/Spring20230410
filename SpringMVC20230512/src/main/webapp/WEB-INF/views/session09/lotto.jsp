@@ -39,8 +39,10 @@
 				<tr>
 					<td>${ status.index }</td>
 					<!-- 分析 Set 集合 -->
-					<c:forEach var="num" items="${ lotto }">
-						<td>${ num }</td>
+					<c:forEach varStatus="num_status" var="num" items="${ lotto }">
+						<td onclick="window.location.href='${pageContext.request.contextPath}/mvc/lotto/update/${status.index}/${num_status.index}';">
+							${ num }
+						</td>
 					</c:forEach>
 					<td>
 						<button type="button" 
