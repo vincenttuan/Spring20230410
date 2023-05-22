@@ -43,10 +43,14 @@
 						<td>${ num }</td>
 					</c:forEach>
 					<td>
-						<button type="button" class="pure-button pure-button-primary">更新</button>
+						<button type="button" 
+								onclick="window.location.href='${pageContext.request.contextPath}/mvc/lotto/update/${status.index}}';"
+								class="pure-button pure-button-primary">更新</button>
 					</td>
 					<td>
-						<button type="button" class="pure-button pure-button-primary">刪除</button>
+						<button type="button" 
+								onclick="window.location.href='${pageContext.request.contextPath}/mvc/lotto/delete/${status.index}';"
+								class="pure-button pure-button-primary">刪除</button>
 					</td>
 				</tr>
 			</c:forEach>
