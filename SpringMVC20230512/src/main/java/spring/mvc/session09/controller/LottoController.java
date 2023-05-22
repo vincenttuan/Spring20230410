@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,7 +22,9 @@ public class LottoController {
 	// 首頁
 	//@RequestMapping(value = "/", method = RequestMethod.GET)
 	@GetMapping("/")
-	public String index() {
+	public String index(Model model) {
+		List<Set<Integer>> lottos = lottoService.queryAll();
+		model.addAttribute("lottos", lottos);
 		return "session09/lotto";
 	}
 	
@@ -29,15 +32,20 @@ public class LottoController {
 	@GetMapping("/add")
 	public String add(Model model) {
 		lottoService.add();
-		List<Set<Integer>> lottos = lottoService.queryAll();
-		model.addAttribute("lottos", lottos);
-		return "session09/lotto";
+		return "redirect:./"; // 重導至 lotto 首頁
 	}
 	
-	
-	
 	// 修改 lotto
+	@GetMapping("/update/{index}")
+	public String update(@PathVariable("index") Integer index) {
+		lottoService.update(index);
+		return "redirect:./"; // 重導至 lotto 首頁
+	}
 	
 	// 刪除 lotto
-	
+	@GetMapping("/delete/{index}")
+	public String delete(@PathVariable("index") Integer index) {
+		lottoService.delete(index); // 重導至 lotto 首頁
+		return "redirect:./";
+	}
 }
