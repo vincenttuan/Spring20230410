@@ -13,18 +13,20 @@ public class LottoService {
 	// 用來存放歷史 lotto 紀錄
 	private List<Set<Integer>> lottos = new CopyOnWriteArrayList<>();
 	
+	// 新增一筆紀錄
 	public void add() {
 		// 樂透 539: 1 ~ 39 取出不重複的 5 個數字
 		Set<Integer> lotto = getRandomLotto();
 		lottos.add(lotto);
 	}
 	
+	// 查詢多筆紀錄
 	public List<Set<Integer>> queryAll() {
 		return lottos;
 	}
 	
 	// 透過電腦選號產生號碼 
-	public Set<Integer> getRandomLotto() {
+	private Set<Integer> getRandomLotto() {
 		// 樂透 539: 1 ~ 39 取出不重複的 5 個數字
 		Set<Integer> lotto = new LinkedHashSet<>();
 		while(lotto.size() < 5) {
