@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 	
 	<p>
 	<!-- 電腦選號歷史紀錄資料 -->
-	歷史紀錄:
+	歷史紀錄(${fn:length(lottos)}):
 	<table class="pure-table pure-table-bordered">
 		<thread>
 			<tr>
