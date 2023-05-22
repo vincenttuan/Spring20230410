@@ -20,5 +20,9 @@
 		<li><a href="./mvc/hello/user?name=John&score=90&age=18&pass=true">/mvc/hello/user?name=John&score=90&age=18&pass=true</a></li>
 		<li><a href="./mvc/hello/user?name=Mary&score=40&age=17&pass=false">/mvc/hello/user?name=Mary&score=40&age=17&pass=false</a></li>
 	</ul>
+	Session09:<p>
+	<ul>
+		<li><a href="./mvc/lotto/">/mvc/lotto/</a></li>
+	</ul>	
 </body>
 </html>
