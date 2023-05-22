@@ -12,8 +12,10 @@
 	<button type="button"
 			onclick="window.location.href='${pageContext.request.contextPath}/mvc/lotto/add';"
 			class="pure-button pure-button-primary">Lotto 539 電腦選號</button>
+	<p>		
 	<!-- 電腦選號統計資料 -->
 	
+	<p>
 	<!-- 電腦選號歷史紀錄資料 -->
 	${ lottos }
 </body>
