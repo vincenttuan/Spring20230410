@@ -1,0 +1,35 @@
+package spring.mvc.session09.service;
+
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class LottoService {
+	// 用來存放歷史 lotto 紀錄
+	private List<Set<Integer>> lottos = new CopyOnWriteArrayList<>();
+	
+	public void add() {
+		// 樂透 539: 1 ~ 39 取出不重複的 5 個數字
+		Set<Integer> lotto = getRandomLotto();
+		lottos.add(lotto);
+	}
+	
+	public List<Set<Integer>> queryAll() {
+		return lottos;
+	}
+	
+	// 透過電腦選號產生號碼 
+	public Set<Integer> getRandomLotto() {
+		// 樂透 539: 1 ~ 39 取出不重複的 5 個數字
+		Set<Integer> lotto = new LinkedHashSet<>();
+		while(lotto.size() < 5) {
+			lotto.add(new Random().nextInt(39) + 1);
+		}
+		return lotto;
+	}
+}
