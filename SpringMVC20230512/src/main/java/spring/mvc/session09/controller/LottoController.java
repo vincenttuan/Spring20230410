@@ -25,6 +25,7 @@ public class LottoController {
 	public String index(Model model) {
 		List<Set<Integer>> lottos = lottoService.queryAll();
 		model.addAttribute("lottos", lottos);
+		model.addAttribute("stat", lottoService.getLottoStatistics());
 		return "session09/lotto";
 	}
 	
@@ -56,4 +57,6 @@ public class LottoController {
 		lottoService.delete(index); // 重導至 lotto 首頁
 		return "redirect:../";
 	}
+	
+	
 }
