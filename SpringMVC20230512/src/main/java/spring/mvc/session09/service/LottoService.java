@@ -35,7 +35,14 @@ public class LottoService {
 	public void update(int rowIndex, int columnIndex) {
 		Set<Integer> row = lottos.get(rowIndex);
 		List<Integer> rowList = new ArrayList<Integer>(row);
-		rowList.set(columnIndex, 99);
+		while(true) {
+			int newNum = new Random().nextInt(39) + 1;
+			// 檢查 rowList 的元素中是否有 newNum
+			if(rowList.stream().filter(n -> n.intValue() == newNum).findAny().isEmpty()) {
+				rowList.set(columnIndex, newNum);
+				break;
+			}
+		}
 		lottos.set(rowIndex, new LinkedHashSet<Integer>(rowList));
 	}
 	
