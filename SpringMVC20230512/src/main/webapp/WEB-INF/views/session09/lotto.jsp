@@ -21,7 +21,7 @@
 	<!-- 電腦選號歷史紀錄資料 -->
 	歷史紀錄(${fn:length(lottos)}):
 	<table class="pure-table pure-table-bordered">
-		<thread>
+		<thead>
 			<tr>
 				<th>index</th>
 				<th>號碼 1</th>
@@ -32,7 +32,7 @@
 				<th>更新</th>
 				<th>刪除</th>
 			</tr>
-		</thread>
+		</thead>
 		<tbody>
 			<!-- 分析 List 集合 -->
 			<c:forEach varStatus="status" var="lotto" items="${ lottos }">
