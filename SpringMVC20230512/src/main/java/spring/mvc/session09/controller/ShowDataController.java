@@ -1,4 +1,4 @@
-package spring.mvc.session09;
+package spring.mvc.session09.controller;
 
 import java.util.Arrays;
 import java.util.Date;
