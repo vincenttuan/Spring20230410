@@ -16,7 +16,24 @@
 			class="pure-button pure-button-primary">Lotto 539 電腦選號</button>
 	<p>		
 	<!-- 電腦選號統計資料 -->
-	
+	<table class="pure-table pure-table-bordered">
+		<thead>
+			<tr>
+				<th>號碼</th>
+				<c:forEach var="st" items="${ stat }">
+					<th nowrap>${ st.key }</th>
+				</c:forEach>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>次數</td>
+				<c:forEach var="st" items="${ stat }">
+					<td nowrap>${ st.value }</td>
+				</c:forEach>
+			</tr>
+		</tbody>
+	</table>
 	<p>
 	<!-- 電腦選號歷史紀錄資料 -->
 	歷史紀錄(${fn:length(lottos)}):
