@@ -17,7 +17,7 @@ public class LottoService {
 	public void add() {
 		// 樂透 539: 1 ~ 39 取出不重複的 5 個數字
 		Set<Integer> lotto = getRandomLotto();
-		lottos.add(lotto);
+		lottos.add(0, lotto);
 	}
 	
 	// 查詢多筆紀錄
