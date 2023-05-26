@@ -5,6 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,13 +74,22 @@ public class ProductRestController {
 		// 將 product 物件資料傳遞給 /updateOK 再傳給 success.jsp 顯示, 可以防止二次 submit
 		attr.addFlashAttribute(product);
 		attr.addFlashAttribute("message", "修改成功");
-		// 返回 addOK
+		// 返回 updateOK
 		return "redirect:updateOK";
 	}
 	
+	// 刪除商品
+	@DeleteMapping("/{index}")
+	public String delete(@PathVariable("index") int index, RedirectAttributes attr) {
+		// 進行刪除程序
+		products.remove(index);
+		attr.addFlashAttribute("message", "刪除成功");
+		// 返回 deleteOK
+		return "redirect:deleteOK";
+	}
 	
 	// 新增修改商品-成功
-	@GetMapping(value = {"/addOK", "/updateOK"})
+	@GetMapping(value = {"/addOK", "/updateOK", "/deleteOK"})
 	public String success() {
 		return "session10/rest/success";
 	}
