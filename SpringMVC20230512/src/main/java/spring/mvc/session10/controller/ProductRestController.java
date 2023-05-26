@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import spring.mvc.session10.entity.Product;
 
@@ -33,9 +34,11 @@ public class ProductRestController {
 	
 	// 新增商品
 	@PostMapping("/")
-	public String add(Product product) {
+	public String add(Product product, RedirectAttributes attr) {
 		// 進行新增程序...
 		products.add(product);
+		// 將 product 物件資料傳遞給 /addOK 再傳給 success.jsp 顯示, 可以防止二次 submit
+		attr.addFlashAttribute(product);
 		// 返回 addOK
 		return "redirect:addOK";
 	}
