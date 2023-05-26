@@ -55,6 +55,7 @@ public class ProductRestController {
 		products.add(product);
 		// 將 product 物件資料傳遞給 /addOK 再傳給 success.jsp 顯示, 可以防止二次 submit
 		attr.addFlashAttribute(product);
+		attr.addFlashAttribute("message", "新增成功");
 		// 返回 addOK
 		return "redirect:addOK";
 	}
@@ -63,7 +64,7 @@ public class ProductRestController {
 	@PutMapping("/{index}")
 	public String update(@PathVariable("index") int index, Product product, RedirectAttributes attr) {
 		// 驗證
-		if(product.getName() == null || product.getQuantity() == null || product.getPrice() == null) {
+		if(product.getName() == null || product.getName().trim().length() == 0 || product.getQuantity() == null || product.getPrice() == null) {
 			attr.addFlashAttribute("message", "修改資料錯誤");
 			return "redirect:error";
 		}
@@ -71,6 +72,7 @@ public class ProductRestController {
 		products.set(index, product);
 		// 將 product 物件資料傳遞給 /updateOK 再傳給 success.jsp 顯示, 可以防止二次 submit
 		attr.addFlashAttribute(product);
+		attr.addFlashAttribute("message", "修改成功");
 		// 返回 addOK
 		return "redirect:updateOK";
 	}

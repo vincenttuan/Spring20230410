@@ -12,6 +12,7 @@
 	</head>
 	<body style="padding: 15px">
 		<form method="get" action="${pageContext.request.contextPath}/mvc/product/rest/">
+			${ message }<p />
 			商品名稱: ${ product.name }<p />
 			商品數量: ${ product.quantity }<p />
 			商品價格: ${ product.price }<p />
