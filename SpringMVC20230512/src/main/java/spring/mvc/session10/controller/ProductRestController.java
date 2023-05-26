@@ -6,6 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.session10.entity.Product;
@@ -22,6 +23,21 @@ public class ProductRestController {
 	public String index(Model model) {
 		model.addAttribute("products", products);
 		return "session10/rest/product";
+	}
+	
+	// 新增商品
+	@PostMapping("/")
+	public String add(Product product) {
+		// 進行新增程序...
+		products.add(product);
+		// 返回 addOK
+		return "redirect:addOK";
+	}
+	
+	// 新增商品-成功
+	@GetMapping(value = "/addOK")
+	public String success() {
+		return "session10/rest/success";
 	}
 	
 }
