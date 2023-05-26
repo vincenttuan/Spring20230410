@@ -26,7 +26,7 @@
 	</ul>
 	Session10:<p>
 	<ul>
-		<li><a href="./mvc/product/rest">/mvc/product/rest</a></li>
+		<li><a href="./mvc/product/rest/">/mvc/product/rest/</a></li>
 	</ul>	
 </body>
 </html>
