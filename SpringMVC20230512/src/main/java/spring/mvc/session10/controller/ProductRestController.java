@@ -18,6 +18,12 @@ public class ProductRestController {
 	// 商品集合
 	private List<Product> products = new CopyOnWriteArrayList<>();
 	
+	{
+		products.add(new Product("Apple", 100, 50.0));
+		products.add(new Product("Mango", 120, 60.0));
+		products.add(new Product("Banana", 150, 40.0));
+	}
+	
 	// 首頁(查詢所有商品)
 	@GetMapping("/")
 	public String index(Model model) {
