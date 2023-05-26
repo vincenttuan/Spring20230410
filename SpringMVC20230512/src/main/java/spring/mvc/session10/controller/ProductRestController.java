@@ -82,7 +82,8 @@ public class ProductRestController {
 	@DeleteMapping("/{index}")
 	public String delete(@PathVariable("index") int index, RedirectAttributes attr) {
 		// 進行刪除程序
-		products.remove(index);
+		Product product = products.remove(index);
+		attr.addFlashAttribute(product);
 		attr.addFlashAttribute("message", "刪除成功");
 		// 返回 deleteOK
 		return "redirect:deleteOK";
