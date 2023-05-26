@@ -35,6 +35,11 @@ public class ProductRestController {
 	// 新增商品
 	@PostMapping("/")
 	public String add(Product product, RedirectAttributes attr) {
+		// 驗證
+		if(product.getName() == null || product.getQuantity() == null || product.getPrice() == null) {
+			attr.addFlashAttribute("message", "新增資料錯誤");
+			return "redirect:error";
+		}
 		// 進行新增程序...
 		products.add(product);
 		// 將 product 物件資料傳遞給 /addOK 再傳給 success.jsp 顯示, 可以防止二次 submit
@@ -47,6 +52,12 @@ public class ProductRestController {
 	@GetMapping(value = "/addOK")
 	public String success() {
 		return "session10/rest/success";
+	}
+	
+	// 新增商品-成功
+	@GetMapping(value = "/error")
+	public String error() {
+		return "session10/rest/error";
 	}
 	
 }
