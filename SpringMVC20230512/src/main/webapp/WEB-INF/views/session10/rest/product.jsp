@@ -52,7 +52,7 @@
 								</td>
 								<td>
 									<button type="button"
-											onclick="window.location.href='${pageContext.request.contextPath}/mvc/product/rest/${ status.index }';" 
+											onclick="window.location.href='${pageContext.request.contextPath}/mvc/product/rest/${ status.index }?action=delete';" 
 											class="pure-button pure-button-primary" >刪除</button>
 								</td>
 							</tr>

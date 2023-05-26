@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import spring.mvc.session10.entity.Product;
@@ -37,10 +38,13 @@ public class ProductRestController {
 	
 	// 查詢單一商品
 	@GetMapping("/{index}")
-	public String get(Model model, @PathVariable("index") int index) {
+	public String get(Model model, @PathVariable("index") int index, @RequestParam("action") String action) {
 		Product product = products.get(index);
 		model.addAttribute("index", index);
 		model.addAttribute("product", product);
+		if(action != null && action.equals("delete")) {
+			return "session10/rest/product_delete"; 
+		}
 		return "session10/rest/product_update";
 	}
 	
