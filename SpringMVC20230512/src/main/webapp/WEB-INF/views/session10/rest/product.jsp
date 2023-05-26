@@ -20,7 +20,7 @@
 				商品名稱: <input type="text" placeholder="請輸入商品名稱" id="name" name="name"><p/>
 				商品數量: <input type="number" placeholder="請輸入商品數量" id="quantity" name="quantity"><p/>
 				商品價格: <input type="number" placeholder="請輸入商品價格" id="price" name="price"><p/>
-				<button type="submit" classs="pure-button pure-button-primary" >Add</button>
+				<button type="submit" class="pure-button pure-button-primary" >Add</button>
 			</fieldset>
 				  
 			  
