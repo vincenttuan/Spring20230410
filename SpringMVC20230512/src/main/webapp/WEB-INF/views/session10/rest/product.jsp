@@ -47,6 +47,7 @@
 								<td>${ product.price }</td>
 								<td>
 									<button type="button" 
+											onclick="window.location.href='${pageContext.request.contextPath}/mvc/product/rest/${ status.index }';"
 											class="pure-button pure-button-primary" >修改</button>
 								</td>
 								<td>
