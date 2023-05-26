@@ -23,6 +23,10 @@
 	Session09:<p>
 	<ul>
 		<li><a href="./mvc/lotto/">/mvc/lotto/</a></li>
+	</ul>
+	Session10:<p>
+	<ul>
+		<li><a href="./mvc/product/rest">/mvc/product/rest</a></li>
 	</ul>	
 </body>
 </html>
