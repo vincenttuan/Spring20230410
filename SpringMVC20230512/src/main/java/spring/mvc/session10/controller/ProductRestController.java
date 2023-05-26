@@ -54,7 +54,7 @@ public class ProductRestController {
 		return "session10/rest/success";
 	}
 	
-	// 新增商品-成功
+	// 失敗頁面
 	@GetMapping(value = "/error")
 	public String error() {
 		return "session10/rest/error";
