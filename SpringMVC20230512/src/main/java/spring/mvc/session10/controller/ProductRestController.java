@@ -6,6 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -30,6 +31,15 @@ public class ProductRestController {
 	public String index(Model model) {
 		model.addAttribute("products", products);
 		return "session10/rest/product";
+	}
+	
+	// 查詢單一商品
+	@GetMapping("/{index}")
+	public String get(Model model, @PathVariable("index") int index) {
+		Product product = products.get(index);
+		model.addAttribute("index", index);
+		model.addAttribute("product", product);
+		return "session10/rest/product_update";
 	}
 	
 	// 新增商品
