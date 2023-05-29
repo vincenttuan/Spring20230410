@@ -15,7 +15,7 @@
 	<body style="padding: 15px">
 		<table>
 			<tr>
-				<td>
+				<td valign="top">
 					<!-- User Form -->
 					<spform:form class="pure-form"
 					 			method="post"
@@ -49,7 +49,7 @@
 						</fieldset>
 					</spform:form>
 				</td>
-				<td>
+				<td valign="top">
 					<!-- User List -->
 					<form class="pure-form">
 						<fieldset>
