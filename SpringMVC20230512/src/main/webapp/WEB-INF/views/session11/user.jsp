@@ -68,7 +68,9 @@
 											<td>${ status.index }</td>
 											<td>${ user.name }</td>
 											<td>${ user.age }</td>
-											<td>${ user.birth }</td>
+											<td nowrap>
+												<fmt:formatDate value="${ user.birth }" pattern="yyyy-MM-dd"/>
+											</td>
 											<td>${ user.education }</td>
 											<td>${ user.sex }</td>
 											<td>${ user.interest }</td>
