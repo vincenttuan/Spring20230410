@@ -19,6 +19,15 @@ public class UserController {
 	
 	private List<User> users = new CopyOnWriteArrayList<>();
 	
+	{
+		users.add(new User("Vincent", 18, new Date(), "大學", "男", new String[] {"飛控"}, "Test1"));
+		users.add(new User("Mary", 17, new Date(), "高中", "女", new String[] {"爬山,看書"}, "Test2"));
+		users.add(new User("Helen", 24, new Date(), "研究所", "女", new String[] {"爬山","打球"}, "Test3"));
+		users.add(new User("Jack", 19, new Date(), "大學", "男", new String[] {"爬山","飛控"}, "Test4"));
+		users.add(new User("Jean", 17, new Date(), "高中", "女", null, "Test5"));
+		
+	}
+	
 	// 首頁
 	@GetMapping("/")
 	public String index(Model model, @ModelAttribute User user) {

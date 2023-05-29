@@ -21,6 +21,21 @@ public class User {
 	private String[] interest;
 	private String resume;
 	
+	public User() {
+		
+	}
+	
+	public User(String name, Integer age, Date birth, String education, String sex, String[] interest, String resume) {
+		this.name = name;
+		this.age = age;
+		this.birth = birth;
+		this.education = education;
+		this.sex = sex;
+		this.interest = interest;
+		this.resume = resume;
+	}
+
+
 	public String getName() {
 		return name;
 	}
