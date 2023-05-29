@@ -23,6 +23,10 @@ public class UserController {
 		model.addAttribute("_method", "POST");
 		model.addAttribute("submitButtonName", "新增");
 		model.addAttribute("users", users);
+		
+		user.setName("Vincent");
+		user.setAge(18);
+		
 		return "session11/user";
 	}
 	
