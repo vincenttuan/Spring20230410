@@ -73,7 +73,9 @@
 											</td>
 											<td>${ user.education }</td>
 											<td>${ user.sex }</td>
-											<td>${ user.interest }</td>
+											<td>
+												${ fn:join(user.interest, " ")}
+											</td>
 											<td>${ user.resume }</td>
 											<td>
 												<button type="button"
