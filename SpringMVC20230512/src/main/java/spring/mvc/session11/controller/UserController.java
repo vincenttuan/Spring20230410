@@ -51,7 +51,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{index}")
-	public String get(@PathVariable("index") int index, Model model, @RequestParam("action") String action) {
+	public String get(@PathVariable("index") int index, Model model, @RequestParam(value = "action", required = false) String action) {
 		User user = users.get(index);
 		model.addAttribute("user", user); // 需自帶 user
 		model.addAttribute("index", index); // 需自帶 index 給 form 表單的 action
