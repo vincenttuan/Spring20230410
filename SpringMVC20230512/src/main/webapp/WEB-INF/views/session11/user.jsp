@@ -84,6 +84,7 @@
 											</td nowrap>
 											<td>
 												<button type="button"
+														onclick="window.location.href='${pageContext.request.contextPath}/mvc/session11/user/${ status.index }?action=delete';"
 														class="pure-button">刪除</button>
 											</td>
 										</tr>
