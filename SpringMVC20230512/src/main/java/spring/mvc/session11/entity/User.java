@@ -3,11 +3,19 @@ package spring.mvc.session11.entity;
 import java.util.Arrays;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class User {
 	
 	private String name;
 	private Integer age;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd") // 設定返回的日期格式
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8") // 設定接收的日期格式
 	private Date birth;
+	
 	private String education;
 	private String sex;
 	private String[] interest;

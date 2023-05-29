@@ -1,5 +1,6 @@
 package spring.mvc.session11.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -26,6 +27,7 @@ public class UserController {
 		
 		user.setName("Vincent");
 		user.setAge(18);
+		user.setBirth(new Date());
 		user.setEducation("大學");
 		user.setSex("男");
 		user.setInterest(new String[] {"爬山", "飛控"});
