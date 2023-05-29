@@ -57,30 +57,30 @@
 							<table class="pure-table pure-table-bordered">
 								<thead>
 									<tr>
-										<th>index</th><th>姓名</th><th>年齡</th>
-										<th>生日</th><th>學歷</th><th>性別</th>
-										<th>興趣</th><th>履歷</th><th>編輯</th><th>刪除</th>
+										<th nowrap>index</th><th nowrap>姓名</th><th nowrap>年齡</th>
+										<th nowrap>生日</th><th nowrap>學歷</th><th nowrap>性別</th>
+										<th nowrap>興趣</th><th nowrap>履歷</th><th nowrap>編輯</th><th nowrap>刪除</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach varStatus="status" var="user" items="${ users }">
 										<tr>
-											<td>${ status.index }</td>
-											<td>${ user.name }</td>
-											<td>${ user.age }</td>
+											<td nowrap>${ status.index }</td>
+											<td nowrap>${ user.name }</td>
+											<td nowrap>${ user.age }</td>
 											<td nowrap>
 												<fmt:formatDate value="${ user.birth }" pattern="yyyy-MM-dd"/>
 											</td>
-											<td>${ user.education }</td>
-											<td>${ user.sex }</td>
-											<td>
+											<td nowrap>${ user.education }</td>
+											<td nowrap>${ user.sex }</td>
+											<td nowrap>
 												${ fn:join(user.interest, " ")}
 											</td>
 											<td>${ user.resume }</td>
-											<td>
+											<td nowrap>
 												<button type="button"
 														class="pure-button">編輯</button>
-											</td>
+											</td nowrap>
 											<td>
 												<button type="button"
 														class="pure-button">刪除</button>
