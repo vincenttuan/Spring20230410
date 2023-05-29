@@ -54,7 +54,37 @@
 					<form class="pure-form">
 						<fieldset>
 							<legend>User List</legend>
-							${ users }
+							<table class="pure-table pure-table-bordered">
+								<thead>
+									<tr>
+										<th>index</th><th>姓名</th><th>年齡</th>
+										<th>生日</th><th>學歷</th><th>性別</th>
+										<th>興趣</th><th>履歷</th><th>編輯</th><th>刪除</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach varStatus="status" var="user" items="${ users }">
+										<tr>
+											<td>${ status.index }</td>
+											<td>${ user.name }</td>
+											<td>${ user.age }</td>
+											<td>${ user.birth }</td>
+											<td>${ user.education }</td>
+											<td>${ user.sex }</td>
+											<td>${ user.interest }</td>
+											<td>${ user.resume }</td>
+											<td>
+												<button type="button"
+														class="pure-button">編輯</button>
+											</td>
+											<td>
+												<button type="button"
+														class="pure-button">刪除</button>
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</fieldset>
 					</form>
 				</td>
