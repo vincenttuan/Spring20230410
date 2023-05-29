@@ -79,6 +79,7 @@
 											<td>${ user.resume }</td>
 											<td nowrap>
 												<button type="button"
+														onclick="window.location.href='${pageContext.request.contextPath}/mvc/session11/user/${ status.index }';"
 														class="pure-button">編輯</button>
 											</td nowrap>
 											<td>
