@@ -26,7 +26,10 @@ public class UserController {
 		
 		user.setName("Vincent");
 		user.setAge(18);
-		
+		user.setEducation("大學");
+		user.setSex("男");
+		user.setInterest(new String[] {"爬山", "飛控"});
+		user.setResume("我的履歷資料:\n1:我的家庭...\n2:我喜歡...");
 		return "session11/user";
 	}
 	
