@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.session11.entity.User;
@@ -51,6 +52,7 @@ public class UserController {
 	public String get(@PathVariable("index") int index, Model model) {
 		User user = users.get(index);
 		model.addAttribute("user", user); // 需自帶 user
+		model.addAttribute("index", index); // 需自帶 index 給 form 表單的 action
 		model.addAttribute("_method", "PUT");
 		model.addAttribute("submitButtonName", "修改");
 		model.addAttribute("users", users);
@@ -62,5 +64,12 @@ public class UserController {
 		users.add(user);
 		return "redirect:./";
 	}
+	
+	@PutMapping("/{index}")
+	public String update(@PathVariable("index") int index, @ModelAttribute User user) {
+		users.set(index, user);
+		return "redirect:./";
+	}
+	
 	
 }

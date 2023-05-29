@@ -20,7 +20,7 @@
 					<spform:form class="pure-form"
 					 			method="post"
 					 			modelAttribute="user"
-					 			action="${pageContext.request.contextPath}/mvc/session11/user/">
+					 			action="${pageContext.request.contextPath}/mvc/session11/user/${ index }">
 						<fieldset>
 							<legend>User Form</legend>
 							<!-- user表單元素 -->
