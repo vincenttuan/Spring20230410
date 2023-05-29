@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -43,6 +44,16 @@ public class UserController {
 		user.setInterest(new String[] {"爬山", "飛控"});
 		user.setResume("我的履歷資料:\n1:我的家庭...\n2:我喜歡...");
 		*/
+		return "session11/user";
+	}
+	
+	@GetMapping("/{index}")
+	public String get(@PathVariable("index") int index, Model model) {
+		User user = users.get(index);
+		model.addAttribute("user", user); // 需自帶 user
+		model.addAttribute("_method", "PUT");
+		model.addAttribute("submitButtonName", "修改");
+		model.addAttribute("users", users);
 		return "session11/user";
 	}
 	
