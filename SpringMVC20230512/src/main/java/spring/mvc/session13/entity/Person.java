@@ -2,14 +2,20 @@ package spring.mvc.session13.entity;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 public class Person {
 	
+	@NotNull(message = "性名不可以是空值")
 	private String name; // 姓名
 	
+	@NotNull(message = "年齡不可以是空值")
 	private Integer age; // 年齡
 	
+	@NotNull(message = "會員設定不可以是空值")
 	private Boolean member; // 是否是會員 ?
 	
+	@NotNull(message = "生日不可以是空值")
 	private Date birth; // 生日
 
 	public String getName() {
