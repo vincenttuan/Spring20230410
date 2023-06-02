@@ -31,6 +31,7 @@ public class StockValidator implements Validator {
 			yStock = YahooFinance.get(stock.getSymbol());
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			if(yStock == null) {
 				errors.rejectValue("symbol", "stock.symbol.notfound");
 			}
