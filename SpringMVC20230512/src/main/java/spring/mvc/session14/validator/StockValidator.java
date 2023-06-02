@@ -2,20 +2,30 @@ package spring.mvc.session14.validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import spring.mvc.session14.entity.Stock;
 
 @Component
 public class StockValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
-		return false;
+		// 判斷 clazz 傳進來的是否是要驗證的 Stock
+		return Stock.class.isAssignableFrom(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
+		Stock stock = (Stock)target;
+		// 基礎驗證
+		ValidationUtils.rejectIfEmpty(errors, "symbol", "stock.symbol.empty");
+		ValidationUtils.rejectIfEmpty(errors, "price", "stock.price.empty");
+		ValidationUtils.rejectIfEmpty(errors, "amount", "stock.amount.empty");
+		
+		// 進階驗證
+		
 		
 	}
 
