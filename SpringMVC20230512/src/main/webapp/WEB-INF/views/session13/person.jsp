@@ -43,5 +43,6 @@
 				<spform:errors path="*" cssClass="error" />
 			</fieldset>
 		</spform:form>
+		${ people }
 	</body>
 </html>
