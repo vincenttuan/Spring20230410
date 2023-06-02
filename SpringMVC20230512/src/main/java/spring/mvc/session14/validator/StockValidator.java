@@ -6,6 +6,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import spring.mvc.session14.entity.Stock;
+import yahoofinance.YahooFinance;
 
 @Component
 public class StockValidator implements Validator {
@@ -25,7 +26,15 @@ public class StockValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "amount", "stock.amount.empty");
 		
 		// 進階驗證
-		
+		yahoofinance.Stock yStock = null;
+		try {
+			yStock = YahooFinance.get(stock.getSymbol());
+			
+		} catch (Exception e) {
+			if(yStock == null) {
+				errors.rejectValue("symbol", "stock.symbol.notfound");
+			}
+		}
 		
 	}
 
