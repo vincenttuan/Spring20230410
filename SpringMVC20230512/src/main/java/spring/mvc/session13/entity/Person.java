@@ -4,6 +4,10 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Person {
 	
 	@NotNull(message = "性名不可以是空值")
@@ -16,6 +20,8 @@ public class Person {
 	private Boolean member; // 是否是會員 ?
 	
 	@NotNull(message = "生日不可以是空值")
+	@DateTimeFormat(pattern = "yyyy-MM-dd") // 設定返回的日期格式
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8") // 設定接收的日期格式
 	private Date birth; // 生日
 
 	public String getName() {
