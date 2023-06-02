@@ -6,7 +6,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -14,15 +17,18 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Person {
 	
 	@NotEmpty(message = "性名不可以是空值") // 字串用 @NotEmpty 
+	@Size(min = 2, max = 50, message = "姓名字數必須介於{min}~{max}之間")
 	private String name; // 姓名
 	
 	@NotNull(message = "年齡不可以是空值")
+	@Range(min = 18, max = 99, message = "年齡範圍必須介於{min}~{max}之間")
 	private Integer age; // 年齡
 	
 	@NotNull(message = "會員設定不可以是空值")
 	private Boolean member; // 是否是會員 ?
 	
 	@NotNull(message = "生日不可以是空值")
+	@Past(message = "生日不可以大於現在日期")
 	@DateTimeFormat(pattern = "yyyy-MM-dd") // 設定返回的日期格式
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8") // 設定接收的日期格式
 	private Date birth; // 生日
