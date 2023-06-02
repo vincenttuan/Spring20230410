@@ -2,7 +2,10 @@ package spring.mvc.session13.entity;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Person {
 	
-	@NotNull(message = "性名不可以是空值")
+	@NotEmpty(message = "性名不可以是空值") // 字串用 @NotEmpty 
 	private String name; // 姓名
 	
 	@NotNull(message = "年齡不可以是空值")
