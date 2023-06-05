@@ -70,7 +70,14 @@
 											<td nowrap>
 												<fmt:formatDate value="${ user.birth }" pattern="yyyy-MM-dd"/>
 											</td>
-											<td nowrap>${ user.education }</td>
+											<td nowrap>
+												<c:forEach var="educationData" items="${ dataMap.educationData }" >
+													<c:if test="${ user.education eq educationData.id }">
+														${ educationData.name }
+													</c:if>
+												</c:forEach>
+												
+											</td>
 											<td nowrap>${ user.sex }</td>
 											<td nowrap>
 												${ fn:join(user.interest, " ")}
