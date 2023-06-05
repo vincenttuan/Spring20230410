@@ -35,7 +35,7 @@
 							生日: <spform:input type="date" path="birth" /><p />
 							學歷: <spform:select path="education">
 									<spform:option value="">請選擇</spform:option>
-									<spform:options items="${ dataMap.educationData }" />
+									<spform:options items="${ dataMap.educationData }" itemValue="id" itemLabel="name" />
 								 </spform:select><p />
 							性別: <spform:radiobuttons path="sex" items="${ dataMap.sexData }" cssClass="element-margin" />
 								 <p />

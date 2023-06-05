@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import spring.mvc.session11.entity.EducationData;
 import spring.mvc.session11.entity.User;
 
 @Controller
@@ -27,7 +28,13 @@ public class UserController {
 	private List<User> users = new CopyOnWriteArrayList<>();
 	
 	// form data 參數
-	private List<String> educationData = Arrays.asList("小學", "國中", "高中", "大學", "研究所");
+	private List<EducationData> educationData = Arrays.asList(
+				new EducationData(1, "小學"),
+				new EducationData(2, "國中"),
+				new EducationData(3, "高中"),
+				new EducationData(4, "大學"),
+				new EducationData(5, "研究所")
+			);
 	private List<String> sexData = Arrays.asList("男", "女", "不表態");
 	private List<String> interestData = Arrays.asList("爬山", "看書", "打球", "飛控", "手遊");
 	// form data 參數集合
