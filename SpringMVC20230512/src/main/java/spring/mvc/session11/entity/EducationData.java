@@ -1,21 +1,21 @@
 package spring.mvc.session11.entity;
 
 public class EducationData {
-	private Integer id;
+	private String id;
 	private String name;
 	
 	public EducationData() {}
 
-	public EducationData(Integer id, String name) {
+	public EducationData(String id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -29,11 +29,11 @@ public class UserController {
 	
 	// form data 參數
 	private List<EducationData> educationData = Arrays.asList(
-				new EducationData(1, "小學"),
-				new EducationData(2, "國中"),
-				new EducationData(3, "高中"),
-				new EducationData(4, "大學"),
-				new EducationData(5, "研究所")
+				new EducationData("1", "小學"),
+				new EducationData("2", "國中"),
+				new EducationData("3", "高中"),
+				new EducationData("4", "大學"),
+				new EducationData("5", "研究所")
 			);
 	private List<String> sexData = Arrays.asList("男", "女", "不表態");
 	private List<String> interestData = Arrays.asList("爬山", "看書", "打球", "飛控", "手遊");
@@ -41,11 +41,11 @@ public class UserController {
 	private Map<String, List> dataMap = new LinkedHashMap<>();
 	
 	{
-		users.add(new User("Vincent", 18, new Date(), "大學", "男", new String[] {"飛控"}, "Test1"));
-		users.add(new User("Mary", 17, new Date(), "高中", "女", new String[] {"爬山,看書"}, "Test2"));
-		users.add(new User("Helen", 24, new Date(), "研究所", "女", new String[] {"爬山","打球"}, "Test3"));
-		users.add(new User("Jack", 19, new Date(), "大學", "男", new String[] {"爬山","飛控"}, "Test4"));
-		users.add(new User("Jean", 17, new Date(), "高中", "女", null, "Test5"));
+		users.add(new User("Vincent", 18, new Date(), "4", "男", new String[] {"飛控"}, "Test1"));
+		users.add(new User("Mary", 17, new Date(), "3", "女", new String[] {"爬山,看書"}, "Test2"));
+		users.add(new User("Helen", 24, new Date(), "5", "女", new String[] {"爬山","打球"}, "Test3"));
+		users.add(new User("Jack", 19, new Date(), "4", "男", new String[] {"爬山","飛控"}, "Test4"));
+		users.add(new User("Jean", 17, new Date(), "3", "女", null, "Test5"));
 		// 配置 form data 參數
 		dataMap.put("educationData", educationData);
 		dataMap.put("sexData", sexData);
