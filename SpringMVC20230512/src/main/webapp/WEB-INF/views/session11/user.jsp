@@ -29,18 +29,11 @@
 							生日: <spform:input type="date" path="birth" /><p />
 							學歷: <spform:select path="education">
 									<spform:option value="">請選擇</spform:option>
-									<spform:option value="國中">國中</spform:option>
-									<spform:option value="高中">高中</spform:option>
-									<spform:option value="大學">大學</spform:option>
-									<spform:option value="研究所">研究所</spform:option>
+									<spform:options items="${ dataMap.educationData }" />
 								 </spform:select><p />
-							性別: <spform:radiobutton path="sex" value="男" />男
-								 <spform:radiobutton path="sex" value="女" />女
+							性別: <spform:radiobuttons path="sex" items="${ dataMap.sexData }" />
 								 <p />
-							興趣: <spform:checkbox path="interest" value="爬山" />爬山
-								 <spform:checkbox path="interest" value="看書" />看書
-								 <spform:checkbox path="interest" value="打球" />打球
-								 <spform:checkbox path="interest" value="飛控" />飛控
+							興趣: <spform:checkboxes path="interest" items="${ dataMap.interestData }"  />
 								 <p />
 							履歷: <spform:textarea path="resume" /><p />
 							<!-- 自訂表單元素 -->

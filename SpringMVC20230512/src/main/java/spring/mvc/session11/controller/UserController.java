@@ -31,7 +31,7 @@ public class UserController {
 	private List<String> sexData = Arrays.asList("男", "女", "不表態");
 	private List<String> interestData = Arrays.asList("爬山", "看書", "打球", "飛控", "手遊");
 	// form data 參數集合
-	private Map<String, List> data = new LinkedHashMap<>();
+	private Map<String, List> dataMap = new LinkedHashMap<>();
 	
 	{
 		users.add(new User("Vincent", 18, new Date(), "大學", "男", new String[] {"飛控"}, "Test1"));
@@ -40,9 +40,9 @@ public class UserController {
 		users.add(new User("Jack", 19, new Date(), "大學", "男", new String[] {"爬山","飛控"}, "Test4"));
 		users.add(new User("Jean", 17, new Date(), "高中", "女", null, "Test5"));
 		// 配置 form data 參數
-		data.put("educationData", educationData);
-		data.put("sexData", sexData);
-		data.put("interestData", interestData);
+		dataMap.put("educationData", educationData);
+		dataMap.put("sexData", sexData);
+		dataMap.put("interestData", interestData);
 		
 	}
 	
@@ -53,7 +53,7 @@ public class UserController {
 		model.addAttribute("submitButtonName", "新增");
 		model.addAttribute("users", users);
 		// 加入 form 表單參數資料
-		model.addAttribute("data", data);
+		model.addAttribute("dataMap", dataMap);
 	
 		/*
 		user.setName("Vincent");
@@ -82,7 +82,7 @@ public class UserController {
 		}
 		model.addAttribute("users", users);
 		// 加入 form 表單參數資料
-		model.addAttribute("data", data);
+		model.addAttribute("dataMap", dataMap);
 				
 		return "session11/user";
 	}
