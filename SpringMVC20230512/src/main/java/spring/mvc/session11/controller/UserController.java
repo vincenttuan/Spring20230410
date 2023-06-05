@@ -1,7 +1,10 @@
 package spring.mvc.session11.controller;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Controller;
@@ -23,12 +26,23 @@ public class UserController {
 	
 	private List<User> users = new CopyOnWriteArrayList<>();
 	
+	// form data 參數
+	private List<String> educationData = Arrays.asList("小學", "國中", "高中", "大學", "研究所");
+	private List<String> sexData = Arrays.asList("男", "女", "不表態");
+	private List<String> interestData = Arrays.asList("爬山", "看書", "打球", "飛控", "手遊");
+	// form data 參數集合
+	private Map<String, List> data = new LinkedHashMap<>();
+	
 	{
 		users.add(new User("Vincent", 18, new Date(), "大學", "男", new String[] {"飛控"}, "Test1"));
 		users.add(new User("Mary", 17, new Date(), "高中", "女", new String[] {"爬山,看書"}, "Test2"));
 		users.add(new User("Helen", 24, new Date(), "研究所", "女", new String[] {"爬山","打球"}, "Test3"));
 		users.add(new User("Jack", 19, new Date(), "大學", "男", new String[] {"爬山","飛控"}, "Test4"));
 		users.add(new User("Jean", 17, new Date(), "高中", "女", null, "Test5"));
+		// 配置 form data 參數
+		data.put("educationData", educationData);
+		data.put("sexData", sexData);
+		data.put("interestData", interestData);
 		
 	}
 	
@@ -38,6 +52,9 @@ public class UserController {
 		model.addAttribute("_method", "POST");
 		model.addAttribute("submitButtonName", "新增");
 		model.addAttribute("users", users);
+		// 加入 form 表單參數資料
+		model.addAttribute("data", data);
+	
 		/*
 		user.setName("Vincent");
 		user.setAge(18);
@@ -64,6 +81,9 @@ public class UserController {
 			model.addAttribute("submitButtonName", "修改");
 		}
 		model.addAttribute("users", users);
+		// 加入 form 表單參數資料
+		model.addAttribute("data", data);
+				
 		return "session11/user";
 	}
 	
