@@ -26,7 +26,7 @@ public class Employee {
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8") // 設定接收的日期格式
 	private Date createtime;
 	
-	// 一個員工有多個工作
+	// 加入: 一個員工有多個工作
 	private List<Job> jobs;
 
 	public Integer getEid() {
