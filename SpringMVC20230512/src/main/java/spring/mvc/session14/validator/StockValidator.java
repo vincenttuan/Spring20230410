@@ -44,7 +44,8 @@ public class StockValidator implements Validator {
 			Double previousClose = quotes.get(stock.getSymbol()); // 取得昨收
 			// 買進價格必須是昨日收盤價的±10%之間
 			if(stock.getPrice() == null || stock.getPrice() < previousClose * 0.9 || stock.getPrice() > previousClose * 1.1) {
-				errors.rejectValue("price", "stock.price.range");
+				// rejectValue(String field, String errorCode, Object[] errorArgs, String defaultMessage);
+				errors.rejectValue("price", "stock.price.range", new Object[] {previousClose * 0.9, previousClose * 1.1}, "stock.price.range");
 			}
 			// 買進股數必須大於或等於1000
 			if(stock.getAmount() == null || stock.getAmount() < 1000) {
