@@ -30,6 +30,7 @@ public class StockValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		Stock stock = (Stock)target;
+		System.out.println(stock);
 		// 基礎驗證
 		ValidationUtils.rejectIfEmpty(errors, "symbol", "stock.symbol.empty");
 		ValidationUtils.rejectIfEmpty(errors, "price", "stock.price.empty");
@@ -42,15 +43,15 @@ public class StockValidator implements Validator {
 		} else {
 			Double previousClose = quotes.get(stock.getSymbol()); // 取得昨收
 			// 買進價格必須是昨日收盤價的±10%之間
-			if(stock.getPrice() < previousClose * 0.9 || stock.getPrice() > previousClose * 1.1) {
+			if(stock.getPrice() == null || stock.getPrice() < previousClose * 0.9 || stock.getPrice() > previousClose * 1.1) {
 				errors.rejectValue("price", "stock.price.range");
 			}
 			// 買進股數必須大於或等於1000
-			if(stock.getAmount() < 1000) {
+			if(stock.getAmount() == null || stock.getAmount() < 1000) {
 				errors.rejectValue("amount", "stock.amount.notenough");
 			}
 			// 買進股數必須是1000的倍數(1000股 = 1張)
-			if(stock.getAmount() % 1000 != 0) {
+			if(stock.getAmount() == null || stock.getAmount() % 1000 != 0) {
 				errors.rejectValue("amount", "stock.amount.range");
 			}
 			
