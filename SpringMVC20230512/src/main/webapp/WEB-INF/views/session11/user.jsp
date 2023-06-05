@@ -31,9 +31,9 @@
 									<spform:option value="">請選擇</spform:option>
 									<spform:options items="${ dataMap.educationData }" />
 								 </spform:select><p />
-							性別: <spform:radiobuttons path="sex" items="${ dataMap.sexData }" />
+							性別: <spform:radiobuttons path="sex" items="${ dataMap.sexData }" cssStyle="margin-right:2px;margin-left:5px;" />
 								 <p />
-							興趣: <spform:checkboxes path="interest" items="${ dataMap.interestData }"  />
+							興趣: <spform:checkboxes path="interest" items="${ dataMap.interestData }" cssStyle="margin-right:2px;margin-left:5px;" />
 								 <p />
 							履歷: <spform:textarea path="resume" /><p />
 							<!-- 自訂表單元素 -->
