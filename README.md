@@ -56,3 +56,26 @@ insert into stock(book_id, book_amount) values(2, 10);
 insert into wallet(username, balance) values('John', 200);
 insert into wallet(username, balance) values('Mary', 200);
 </pre>
+
+# SpringMVC-JebcTemplate 資料表
+<pre>
+-- 刪除資料表
+drop table if exists employee;
+drop table if exists job;
+-- 建立 employee 資料表
+create table if not exists employee (
+	eid integer not null auto_increment,
+	ename varchar(50) not null unique,
+	salary integer,
+	createtime timestamp default current_timestamp,
+	primary key (eid)
+);
+-- 建立 job 資料表
+create table if not exists job (
+	jid integer not null auto_increment,
+	jname varchar(50) not null unique,
+	eid integer not null,
+	foreign key (eid) references employee(eid), -- 外鍵關聯
+	primary key (jid)
+);
+</pre>
