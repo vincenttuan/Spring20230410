@@ -60,8 +60,9 @@ insert into wallet(username, balance) values('Mary', 200);
 # SpringMVC-JebcTemplate 資料表
 <pre>
 -- 刪除資料表
-drop table if exists employee;
 drop table if exists job;
+drop table if exists employee;
+
 -- 建立 employee 資料表
 create table if not exists employee (
 	eid integer not null auto_increment,
