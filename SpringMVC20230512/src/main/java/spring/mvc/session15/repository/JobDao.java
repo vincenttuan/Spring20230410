@@ -2,7 +2,6 @@ package spring.mvc.session15.repository;
 
 import java.util.List;
 
-import spring.mvc.session15.entity.Employee;
 import spring.mvc.session15.entity.Job;
 
 public interface JobDao {
