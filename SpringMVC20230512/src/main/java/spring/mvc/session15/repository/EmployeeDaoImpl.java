@@ -47,8 +47,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public List<Employee> query() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = SQLUtil.QUERY_EMPLOYEE_SQL; // 不分頁查詢
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Employee>(Employee.class));
 	}
 
 	@Override
