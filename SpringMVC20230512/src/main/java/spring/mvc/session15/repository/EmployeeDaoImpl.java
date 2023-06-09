@@ -41,8 +41,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = SQLUtil.COUNT_EMPLOYEE_SQL;
+		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
 
 	@Override
