@@ -41,6 +41,16 @@ public class EmployeeController {
 		return "session15/employee";
 	}
 	
+	@GetMapping("/{eid}")
+	public String get(@PathVariable("eid") Integer eid, Model model) {
+		model.addAttribute("employee", employeeDao.get(eid));
+		model.addAttribute("_method", "PUT");
+		
+		model.addAttribute("employees", employeeDao.query());
+		model.addAttribute("pageCount", getPageCount());
+		return "session15/employee";
+	}
+	
 	@PostMapping("/")
 	public String add(@ModelAttribute @Valid Employee employee, BindingResult result, Model model) {
 		if(result.hasErrors()) {
@@ -53,15 +63,7 @@ public class EmployeeController {
 		return "redirect:./";
 	}
 	
-	@GetMapping("/{eid}")
-	public String get(@PathVariable("eid") Integer eid, Model model) {
-		model.addAttribute("employee", employeeDao.get(eid));
-		model.addAttribute("_method", "PUT");
-		
-		model.addAttribute("employees", employeeDao.query());
-		model.addAttribute("pageCount", getPageCount());
-		return "session15/employee";
-	}
+	
 	
 	// 取得總頁數
 	private int getPageCount() {
