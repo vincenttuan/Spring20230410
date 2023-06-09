@@ -2,9 +2,11 @@ package spring.mvc.session15.repository;
 
 import java.util.List;
 
+import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import spring.mvc.session15.entity.Employee;
@@ -47,8 +49,18 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public List<Employee> query() {
-		String sql = SQLUtil.QUERY_EMPLOYEE_SQL; // 不分頁查詢
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Employee>(Employee.class));
+		//String sql = SQLUtil.QUERY_EMPLOYEE_SQL; // 不分頁查詢
+		String sql = "select e.eid, e.ename, e.salary, e.createtime, " +
+					 "j.jid as job_jid, j.jname as job_jname, j.eid as job_eid " +
+					 "from employee e left join job j on e.eid = j.eid ";
+		
+		ResultSetExtractor<List<Employee>> resultSetExtractor = 
+				JdbcTemplateMapperFactory.newInstance()
+				.addKeys("eid") // 通常就是 Employee 的主鍵
+				.newResultSetExtractor(Employee.class); // 主要查詢的資料表
+		
+		return jdbcTemplate.query(sql, resultSetExtractor);
+		
 	}
 
 	@Override
