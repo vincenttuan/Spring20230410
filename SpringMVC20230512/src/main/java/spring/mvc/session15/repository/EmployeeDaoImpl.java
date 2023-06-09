@@ -79,7 +79,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			emp.setSalary(rs.getInt("salary"));
 			emp.setCreatetime(rs.getDate("createtime"));
 			String job_sql = "select j.jid, j.jname, j.eid from job j where j.eid=?";
-			List<Job> jobs = jdbcTemplate.query(sql, new Object[] {emp.getEid()},
+			List<Job> jobs = jdbcTemplate.query(job_sql, new Object[] {emp.getEid()},
 					new BeanPropertyRowMapper<Job>(Job.class));
 			emp.setJobs(jobs);
 			return emp;
