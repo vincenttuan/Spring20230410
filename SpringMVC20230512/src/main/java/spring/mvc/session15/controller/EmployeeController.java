@@ -47,11 +47,21 @@ public class EmployeeController {
 			model.addAttribute("_method", "POST");
 			model.addAttribute("employees", employeeDao.query());
 			model.addAttribute("pageCount", getPageCount());
+			return "session15/employee";
 		}
 		employeeDao.add(employee);
 		return "redirect:./";
 	}
 	
+	@GetMapping("/{eid}")
+	public String get(@PathVariable("eid") Integer eid, Model model) {
+		model.addAttribute("employee", employeeDao.get(eid));
+		model.addAttribute("_method", "PUT");
+		
+		model.addAttribute("employees", employeeDao.query());
+		model.addAttribute("pageCount", getPageCount());
+		return "session15/employee";
+	}
 	
 	// 取得總頁數
 	private int getPageCount() {
