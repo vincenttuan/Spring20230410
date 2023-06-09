@@ -2,29 +2,34 @@ package spring.mvc.session15.repository;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import spring.mvc.session15.entity.Employee;
 
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {
-
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
 	@Override
 	public int add(Employee emp) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "insert into employee (ename, salary) values(?, ?)";
+		return jdbcTemplate.update(sql, emp.getEname(), emp.getSalary());
 	}
 
 	@Override
 	public int update(Employee emp) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "update employee set ename=?, salary=? where eid=?";
+		return jdbcTemplate.update(sql, emp.getEname(), emp.getSalary(), emp.getEid());
 	}
 
 	@Override
 	public int delete(Integer eid) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from employee where eid=?";
+		return jdbcTemplate.update(sql, eid);
 	}
 
 	@Override
