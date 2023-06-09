@@ -16,19 +16,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	
 	@Override
 	public int add(Employee emp) {
-		String sql = "insert into employee (ename, salary) values(?, ?)";
+		String sql = SQLUtil.ADD_EMPLOYEE_SQL;
 		return jdbcTemplate.update(sql, emp.getEname(), emp.getSalary());
 	}
 
 	@Override
 	public int update(Employee emp) {
-		String sql = "update employee set ename=?, salary=? where eid=?";
+		String sql = SQLUtil.UPT_EMPLOYEE_SQL;
 		return jdbcTemplate.update(sql, emp.getEname(), emp.getSalary(), emp.getEid());
 	}
 
 	@Override
 	public int delete(Integer eid) {
-		String sql = "delete from employee where eid=?";
+		String sql = SQLUtil.DEL_EMPLOYEE_SQL;
 		return jdbcTemplate.update(sql, eid);
 	}
 
