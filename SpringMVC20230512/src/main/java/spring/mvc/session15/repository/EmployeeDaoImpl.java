@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import spring.mvc.session15.entity.Employee;
+import spring.mvc.session15.entity.Job;
 
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -68,8 +70,23 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		int offset = (pageNo-1) * LIMIT;
 		if(offset < 0) return null;
 		String sql = SQLUtil.QUERY_PAGE_EMPLOYEE_SQL;
+		
+		// 自行組合 Employee(一) 與 Job(多) 對應關係
+		RowMapper<Employee> rm = (rs, rowNum) -> {
+			Employee emp = new Employee();
+			emp.setEid(rs.getInt("eid"));
+			emp.setEname(rs.getString("ename"));
+			emp.setSalary(rs.getInt("salary"));
+			emp.setCreatetime(rs.getDate("createtime"));
+			String job_sql = "select j.jid, j.jname, j.eid from job j where j.eid=?";
+			List<Job> jobs = jdbcTemplate.query(sql, new Object[] {emp.getEid()},
+					new BeanPropertyRowMapper<Job>(Job.class));
+			emp.setJobs(jobs);
+			return emp;
+		};
+		
 		Object[] args = {LIMIT, offset};
-		return jdbcTemplate.query(sql, args, new BeanPropertyRowMapper<Employee>(Employee.class));
+		return jdbcTemplate.query(sql, args, rm);
 	}
 
 }
