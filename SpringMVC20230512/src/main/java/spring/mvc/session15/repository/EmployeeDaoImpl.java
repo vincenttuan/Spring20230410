@@ -3,6 +3,7 @@ package spring.mvc.session15.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -34,8 +35,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public Employee get(Integer eid) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = SQLUtil.GET_EMPLOYEE_SQL;
+		return jdbcTemplate.queryForObject(sql, new Object[] {eid}, new BeanPropertyRowMapper<Employee>(Employee.class));
 	}
 
 	@Override
