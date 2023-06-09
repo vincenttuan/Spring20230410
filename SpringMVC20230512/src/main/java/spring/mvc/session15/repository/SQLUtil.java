@@ -7,4 +7,5 @@ public class SQLUtil {
 	public static final String GET_EMPLOYEE_SQL = "select eid, ename, salary, createtime from employee where eid=?"; 
 	public static final String COUNT_EMPLOYEE_SQL = "select count(*) from employee"; 
 	public static final String QUERY_EMPLOYEE_SQL = "select e.eid, e.ename, e.salary, e.createtime from employee e";
+	public static final String QUERY_PAGE_EMPLOYEE_SQL = "select e.eid, e.ename, e.salary, e.createtime from employee e limit ? offset ?";
 }

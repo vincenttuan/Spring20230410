@@ -52,9 +52,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public List<Employee> queryPage(int offset) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Employee> queryPage(int pageNo) {
+		int offset = (pageNo-1) * LIMIT;
+		if(offset < 0) return null;
+		String sql = SQLUtil.QUERY_PAGE_EMPLOYEE_SQL;
+		Object[] args = {LIMIT, offset};
+		return jdbcTemplate.query(sql, args, new BeanPropertyRowMapper<Employee>(Employee.class));
 	}
 
 }
