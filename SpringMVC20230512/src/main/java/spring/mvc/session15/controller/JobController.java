@@ -66,6 +66,8 @@ public class JobController {
 			return "session15/job";
 		}
 		jobDao.add(job);
+		// 設定目前最大的 num
+		session.setAttribute("num", getPageCount());
 		return "redirect:./";
 	}
 	
