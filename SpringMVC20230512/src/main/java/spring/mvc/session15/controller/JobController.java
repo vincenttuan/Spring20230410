@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.mvc.session15.entity.Job;
 import spring.mvc.session15.repository.EmployeeDao;
@@ -47,7 +48,8 @@ public class JobController {
 	
 	@GetMapping("/page/{num}")
 	public String page(@PathVariable("num") int num, @ModelAttribute Job job, Model model, HttpSession session) {
-		if(num < 0) {
+		if(num <= 0) {
+			session.setAttribute("num", "");
 			return "redirect:../";
 		}
 		session.setAttribute("num", num); // 將 num 存放到 session 中
