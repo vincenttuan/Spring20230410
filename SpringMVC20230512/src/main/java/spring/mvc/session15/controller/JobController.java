@@ -83,9 +83,20 @@ public class JobController {
 	}
 	
 	@DeleteMapping("/")
-	public String delete(Job job) {
+	public String delete(Job job, HttpSession session) {
 		Integer jid = job.getJid();
 		jobDao.delete(jid);
+		
+		try {
+			int num = Integer.parseInt(session.getAttribute("num")+"");
+			int pageCount = getPageCount();
+			if(num > pageCount) {
+				session.setAttribute("num", pageCount);
+			}
+		} catch (Exception e) {
+			
+		}
+		
 		return "redirect:./";
 	}
 	
