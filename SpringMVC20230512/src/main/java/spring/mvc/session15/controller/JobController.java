@@ -33,16 +33,7 @@ public class JobController {
 	@GetMapping("/")
 	public String index(@ModelAttribute Job job, Model model, HttpSession session) {
 		model.addAttribute("_method", "POST");
-		
-		String sessionNum = session.getAttribute("num") + "";
-		if(sessionNum.length() > 0) {
-			model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
-		} else {
-			model.addAttribute("jobs", jobDao.query());
-		}
-		
-		model.addAttribute("employees", employeeDao.query());
-		model.addAttribute("pageCount", getPageCount());
+		setBaseModelAttribute(model, session);
 		return "session15/job";
 	}
 	
@@ -54,9 +45,7 @@ public class JobController {
 		}
 		session.setAttribute("num", num); // 將 num 存放到 session 中
 		model.addAttribute("_method", "POST");
-		model.addAttribute("jobs", jobDao.queryPage(num));
-		model.addAttribute("employees", employeeDao.query());
-		model.addAttribute("pageCount", getPageCount());
+		setBaseModelAttribute(model, session);
 		return "session15/job";
 	}
 	
@@ -65,15 +54,7 @@ public class JobController {
 		model.addAttribute("job", jobDao.get(jid));
 		model.addAttribute("_method", "PUT");
 		
-		String sessionNum = session.getAttribute("num") + "";
-		if(sessionNum.length() > 0) {
-			model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
-		} else {
-			model.addAttribute("jobs", jobDao.query());
-		}
-		
-		model.addAttribute("employees", employeeDao.query());
-		model.addAttribute("pageCount", getPageCount());
+		setBaseModelAttribute(model, session);
 		return "session15/job";
 	}
 	
@@ -81,16 +62,7 @@ public class JobController {
 	public String add(@ModelAttribute @Valid Job job, BindingResult result, Model model, HttpSession session) {
 		if(result.hasErrors()) {
 			model.addAttribute("_method", "POST");
-			
-			String sessionNum = session.getAttribute("num") + "";
-			if(sessionNum.length() > 0) {
-				model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
-			} else {
-				model.addAttribute("jobs", jobDao.query());
-			}
-			
-			model.addAttribute("employees", employeeDao.query());
-			model.addAttribute("pageCount", getPageCount());
+			setBaseModelAttribute(model, session);
 			return "session15/job";
 		}
 		jobDao.add(job);
@@ -101,16 +73,7 @@ public class JobController {
 	public String update(@ModelAttribute @Valid Job job, BindingResult result, Model model, HttpSession session) {
 		if(result.hasErrors()) {
 			model.addAttribute("_method", "PUT");
-			
-			String sessionNum = session.getAttribute("num") + "";
-			if(sessionNum.length() > 0) {
-				model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
-			} else {
-				model.addAttribute("jobs", jobDao.query());
-			}
-			
-			model.addAttribute("employees", employeeDao.query());
-			model.addAttribute("pageCount", getPageCount());
+			setBaseModelAttribute(model, session);
 			return "session15/job";
 		}
 		jobDao.update(job);
@@ -131,5 +94,19 @@ public class JobController {
 		int pageCount = (int)(Math.ceil((double)count/limit)); // 總頁數
 		return pageCount;
 	}
+	
+	// 設定 base model value
+	private void setBaseModelAttribute(Model model, HttpSession session) {
+		String sessionNum = session.getAttribute("num") + "";
+		if(sessionNum.length() > 0) {
+			model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
+		} else {
+			model.addAttribute("jobs", jobDao.query());
+		}
+		
+		model.addAttribute("employees", employeeDao.query());
+		model.addAttribute("pageCount", getPageCount());
+	}
+	
 	
 }
