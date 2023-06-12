@@ -1,5 +1,6 @@
 package spring.mvc.session15.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,19 +30,27 @@ public class JobController {
 	private EmployeeDao employeeDao;
 	
 	@GetMapping("/")
-	public String index(@ModelAttribute Job job, Model model) {
+	public String index(@ModelAttribute Job job, Model model, HttpSession session) {
 		model.addAttribute("_method", "POST");
-		model.addAttribute("jobs", jobDao.query());
+		
+		String sessionNum = session.getAttribute("num") + "";
+		if(sessionNum.length() > 0) {
+			model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
+		} else {
+			model.addAttribute("jobs", jobDao.query());
+		}
+		
 		model.addAttribute("employees", employeeDao.query());
 		model.addAttribute("pageCount", getPageCount());
 		return "session15/job";
 	}
 	
 	@GetMapping("/page/{num}")
-	public String page(@PathVariable("num") int num, @ModelAttribute Job job, Model model) {
+	public String page(@PathVariable("num") int num, @ModelAttribute Job job, Model model, HttpSession session) {
 		if(num < 0) {
 			return "redirect:../";
 		}
+		session.setAttribute("num", num); // 將 num 存放到 session 中
 		model.addAttribute("_method", "POST");
 		model.addAttribute("jobs", jobDao.queryPage(num));
 		model.addAttribute("employees", employeeDao.query());
