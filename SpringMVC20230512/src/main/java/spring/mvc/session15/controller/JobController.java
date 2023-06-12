@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.session15.entity.Job;
+import spring.mvc.session15.repository.EmployeeDao;
 import spring.mvc.session15.repository.JobDao;
 
 @Controller
@@ -24,10 +25,14 @@ public class JobController {
 	@Autowired
 	private JobDao jobDao;
 	
+	@Autowired
+	private EmployeeDao employeeDao;
+	
 	@GetMapping("/")
 	public String index(@ModelAttribute Job job, Model model) {
 		model.addAttribute("_method", "POST");
 		model.addAttribute("jobs", jobDao.query());
+		model.addAttribute("employees", employeeDao.query());
 		model.addAttribute("pageCount", getPageCount());
 		return "session15/job";
 	}
@@ -39,6 +44,7 @@ public class JobController {
 		}
 		model.addAttribute("_method", "POST");
 		model.addAttribute("jobs", jobDao.queryPage(num));
+		model.addAttribute("employees", employeeDao.query());
 		model.addAttribute("pageCount", getPageCount());
 		return "session15/job";
 	}
@@ -49,6 +55,7 @@ public class JobController {
 		model.addAttribute("_method", "PUT");
 		
 		model.addAttribute("jobs", jobDao.query());
+		model.addAttribute("employees", employeeDao.query());
 		model.addAttribute("pageCount", getPageCount());
 		return "session15/job";
 	}
@@ -58,6 +65,7 @@ public class JobController {
 		if(result.hasErrors()) {
 			model.addAttribute("_method", "POST");
 			model.addAttribute("jobs", jobDao.query());
+			model.addAttribute("employees", employeeDao.query());
 			model.addAttribute("pageCount", getPageCount());
 			return "session15/job";
 		}
@@ -70,6 +78,7 @@ public class JobController {
 		if(result.hasErrors()) {
 			model.addAttribute("_method", "PUT");
 			model.addAttribute("jobs", jobDao.query());
+			model.addAttribute("employees", employeeDao.query());
 			model.addAttribute("pageCount", getPageCount());
 			return "session15/job";
 		}
