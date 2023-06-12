@@ -115,7 +115,7 @@ public class JobController {
 	// 設定 base model value
 	private void setBaseModelAttribute(Model model, HttpSession session) {
 		String sessionNum = session.getAttribute("num") + "";
-		if(sessionNum.length() > 0) {
+		if(sessionNum.length() > 0 && !sessionNum.equals("null")) {
 			model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
 		} else {
 			model.addAttribute("jobs", jobDao.query());
