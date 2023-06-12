@@ -69,25 +69,18 @@ public class JobDaoImpl implements JobDao {
 	public List<Job> queryPage(int pageNo) {
 		int offset = (pageNo-1) * LIMIT;
 		if(offset < 0) return null;
-		String sql = SQLUtil.QUERY_PAGE_JOB_SQL;
 		
-		// 自行組合 Job(多) 與 Employee(一) 對應關係
-		RowMapper<Job> rm = (rs, rowNum) -> {
-			Job job = new Job();
-			job.setJid(rs.getInt("jid"));
-			job.setJname(rs.getString("jname"));
-			
-			if(job.getEid() != null) {
-				String emp_sql = "select e.eid, e.ename, e.salary, e.createtime from employee e where e.eid=?";
-				Employee emp = jdbcTemplate.queryForObject(emp_sql, new Object[] {job.getEid()},
-						new BeanPropertyRowMapper<Employee>(Employee.class));
-				job.setEmployee(emp);
-			}
-			return job;
-		};
+		String sql = "select j.jid, j.jname, j.eid, " +
+				 	 "e.eid as employee_eid, e.ename as employee_ename, e.salary as employee_salary, e.createtime as employee_createtime " +
+				 	 "from job j left join employee e on j.eid = e.eid limit %d offset %d";
+		sql = String.format(sql, LIMIT, offset); 
 		
-		Object[] args = {LIMIT, offset};
-		return jdbcTemplate.query(sql, args, rm);
+		ResultSetExtractor<List<Job>> resultSetExtractor = 
+				JdbcTemplateMapperFactory.newInstance()
+				.addKeys("jid") // 通常就是 Job 的主鍵
+				.newResultSetExtractor(Job.class); // 主要查詢的資料表
+		
+		return jdbcTemplate.query(sql, resultSetExtractor);
 	}
 	
 }
