@@ -61,21 +61,34 @@ public class JobController {
 	}
 	
 	@GetMapping("/{jid}")
-	public String get(@PathVariable("jid") Integer jid, Model model) {
+	public String get(@PathVariable("jid") Integer jid, Model model, HttpSession session) {
 		model.addAttribute("job", jobDao.get(jid));
 		model.addAttribute("_method", "PUT");
 		
-		model.addAttribute("jobs", jobDao.query());
+		String sessionNum = session.getAttribute("num") + "";
+		if(sessionNum.length() > 0) {
+			model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
+		} else {
+			model.addAttribute("jobs", jobDao.query());
+		}
+		
 		model.addAttribute("employees", employeeDao.query());
 		model.addAttribute("pageCount", getPageCount());
 		return "session15/job";
 	}
 	
 	@PostMapping("/")
-	public String add(@ModelAttribute @Valid Job job, BindingResult result, Model model) {
+	public String add(@ModelAttribute @Valid Job job, BindingResult result, Model model, HttpSession session) {
 		if(result.hasErrors()) {
 			model.addAttribute("_method", "POST");
-			model.addAttribute("jobs", jobDao.query());
+			
+			String sessionNum = session.getAttribute("num") + "";
+			if(sessionNum.length() > 0) {
+				model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
+			} else {
+				model.addAttribute("jobs", jobDao.query());
+			}
+			
 			model.addAttribute("employees", employeeDao.query());
 			model.addAttribute("pageCount", getPageCount());
 			return "session15/job";
@@ -85,10 +98,17 @@ public class JobController {
 	}
 	
 	@PutMapping("/")
-	public String update(@ModelAttribute @Valid Job job, BindingResult result, Model model) {
+	public String update(@ModelAttribute @Valid Job job, BindingResult result, Model model, HttpSession session) {
 		if(result.hasErrors()) {
 			model.addAttribute("_method", "PUT");
-			model.addAttribute("jobs", jobDao.query());
+			
+			String sessionNum = session.getAttribute("num") + "";
+			if(sessionNum.length() > 0) {
+				model.addAttribute("jobs", jobDao.queryPage(Integer.parseInt(sessionNum)));
+			} else {
+				model.addAttribute("jobs", jobDao.query());
+			}
+			
 			model.addAttribute("employees", employeeDao.query());
 			model.addAttribute("pageCount", getPageCount());
 			return "session15/job";
