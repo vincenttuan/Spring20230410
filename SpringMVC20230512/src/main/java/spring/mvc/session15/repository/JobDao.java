@@ -28,5 +28,5 @@ public interface JobDao {
 
 	// 多筆查詢 job: 分頁
 	// offset: 從哪一筆紀錄開始查
-	public List<Job> queryPage(int offset);
+	public List<Job> queryPage(int pageNo);
 }

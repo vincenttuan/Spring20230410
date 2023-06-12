@@ -28,6 +28,6 @@ public interface EmployeeDao {
 	
 	// 多筆查詢 employee: 分頁
 	// offset: 從哪一筆紀錄開始查
-	public List<Employee> queryPage(int offset);
+	public List<Employee> queryPage(int pageNo);
 	
 }
