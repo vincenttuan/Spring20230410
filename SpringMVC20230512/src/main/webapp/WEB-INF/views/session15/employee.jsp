@@ -166,7 +166,9 @@
 										<td>${ emp.salary }</td>
 										<td>
 											<c:forEach var="job" items="${ emp.jobs }">
-												${ job.jname }
+												<a href="${ pageContext.request.contextPath }/mvc/session15/job/${ job.jid }">
+													${ job.jname }
+												</a>
 											</c:forEach>
 										</td>
 										<td>${ emp.createtime }</td>
