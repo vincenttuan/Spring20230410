@@ -34,11 +34,11 @@ public class DivisionController {
 	// 捕獲使用者輸入資料格式不正確的例外: BindException
 	// 數學錯誤例外: ArithmeticException
 	@ExceptionHandler({BindException.class, ArithmeticException.class})
-	@ResponseBody
+	//@ResponseBody
 	public String catchException(Exception ex, Model model, HttpServletRequest request) {
 		String referer = request.getHeader("Referer");
 		model.addAttribute("referer", referer);
 		model.addAttribute("ex", ex);
-		return referer + "\n" + ex;
+		return "session17/error";
 	}
 }
