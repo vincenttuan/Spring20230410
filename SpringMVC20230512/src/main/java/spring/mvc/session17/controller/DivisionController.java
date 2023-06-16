@@ -14,8 +14,6 @@ public class DivisionController {
 	
 	@GetMapping("/")
 	public String index(@ModelAttribute Division division) {
-		int result = division.getX() / division.getY();
-		division.setResult(result);
 		return "session17/division";
 	}
 	
