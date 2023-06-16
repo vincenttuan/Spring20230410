@@ -25,5 +25,7 @@
 			
 		</spform:form>
 		結果: ${ division.result }
+		<p />
+		${ globalData.copyright } ${ globalData.address }
 	</body>
 </html>
