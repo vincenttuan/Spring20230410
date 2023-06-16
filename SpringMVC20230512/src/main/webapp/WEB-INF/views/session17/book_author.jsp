@@ -17,10 +17,10 @@
 					 action="${ pageContext.request.contextPath }/mvc/session17/book_author">
 			<fieldset>
 				<legend>Book & Author</legend>
-				書名: <input id="name" name="name" /><p />
-				價格: <input id="price" name="price" /><p />
-				作者: <input id="name" name="name" /><p />
-				年齡: <input id="age" name="age" /><p />
+				書名: <input id="b.name" name="b.name" /><p />
+				價格: <input id="b.price" name="b.price" /><p />
+				作者: <input id="a.name" name="a.name" /><p />
+				年齡: <input id="a.age" name="a.age" /><p />
 				<button type="submit" class="pure-button pure-button-primary">新增</button>	
 			</fieldset>
 			

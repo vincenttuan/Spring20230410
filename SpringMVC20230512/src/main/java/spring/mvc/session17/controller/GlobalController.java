@@ -7,8 +7,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 //在Spring裡，我們可以使用@ControllerAdvice來聲明一些全局性的東西
@@ -35,4 +37,15 @@ public class GlobalController {
 		map.put("address", "台北市忠孝東路四段169號4樓");
 		return map;
 	}
+	
+	@InitBinder("b")
+	public void b(WebDataBinder binder) {
+		binder.setFieldDefaultPrefix("b.");
+	}
+	
+	@InitBinder("a")
+	public void a(WebDataBinder binder) {
+		binder.setFieldDefaultPrefix("a.");
+	}
+	
 }
