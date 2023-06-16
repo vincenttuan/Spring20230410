@@ -16,7 +16,7 @@ public class DivisionController {
 	public String index(@ModelAttribute Division div) {
 		int result = div.getX() / div.getY();
 		div.setResult(result);
-		return "session17/div";
+		return "session17/division";
 	}
 	
 }
