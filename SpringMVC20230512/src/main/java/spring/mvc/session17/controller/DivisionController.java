@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.util.NestedServletException;
 
 import spring.mvc.session17.entity.Division;
 
@@ -30,8 +31,9 @@ public class DivisionController {
 		return "session17/division";
 	}
 	
-	// 捕獲使用者輸入資料格式不正確的例外
-	@ExceptionHandler({BindException.class})
+	// 捕獲使用者輸入資料格式不正確的例外: BindException
+	// 數學錯誤例外: ArithmeticException
+	@ExceptionHandler({BindException.class, ArithmeticException.class})
 	@ResponseBody
 	public String catchException(Exception ex, Model model, HttpServletRequest request) {
 		String referer = request.getHeader("Referer");
