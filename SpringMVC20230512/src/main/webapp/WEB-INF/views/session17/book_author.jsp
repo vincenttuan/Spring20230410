@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spform" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+		<meta charset="UTF-8">
+		<title>Book & Author</title>
+	</head>
+	<body style="padding: 15px">
+		<form class="pure-form" 
+					 method="post" 
+					 action="${ pageContext.request.contextPath }/mvc/session17/book_author">
+			<fieldset>
+				<legend>Book & Author</legend>
+				書名: <input id="name" name="name" /><p />
+				價格: <input id="price" name="price" /><p />
+				作者: <input id="name" name="name" /><p />
+				年齡: <input id="age" name="age" /><p />
+				<button type="submit" class="pure-button pure-button-primary">新增</button>	
+			</fieldset>
+			
+		</form>
+		
+	</body>
+</html>
