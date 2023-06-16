@@ -14,8 +14,14 @@
 	<body style="padding: 15px">
 		<spform:form class="pure-form" method="post" modelAttribute="div"
 					 action="${ pageContext.request.contextPath }/mvc/session17/div/">
-		
+			<fieldset>
+				<legend>整數 除法計算</legend>
+				分子(x): <spform:input path="x" /><p />
+				分母(y): <spform:input path="y" /><p />
+				<button type="submit" class="pure-button pure-button-primary">計算</button>	
+			</fieldset>
+			
 		</spform:form>
-		
+		結果: ${ result }
 	</body>
 </html>
