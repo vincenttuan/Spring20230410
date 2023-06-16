@@ -14,7 +14,7 @@
 	<body style="padding: 15px">
 		<form class="pure-form" 
 					 method="post" 
-					 action="${ pageContext.request.contextPath }/mvc/session17/book_author">
+					 action="${ pageContext.request.contextPath }/mvc/session17/book_author/">
 			<fieldset>
 				<legend>Book & Author</legend>
 				書名: <input id="b.name" name="b.name" /><p />
