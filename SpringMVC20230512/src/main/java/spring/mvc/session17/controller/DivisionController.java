@@ -42,4 +42,5 @@ public class DivisionController {
 		model.addAttribute("ex", ex);
 		return "session17/error";
 	}
+	
 }
