@@ -9,7 +9,7 @@
 	<head>
 		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>整數除法計算</title>
 	</head>
 	<body style="padding: 15px">
 		<spform:form class="pure-form" 
@@ -17,7 +17,7 @@
 					 modelAttribute="division"
 					 action="${ pageContext.request.contextPath }/mvc/session17/division/">
 			<fieldset>
-				<legend>整數 除法計算</legend>
+				<legend>整數除法計算</legend>
 				分子(x): <spform:input path="x" /><p />
 				分母(y): <spform:input path="y" /><p />
 				<button type="submit" class="pure-button pure-button-primary">計算</button>	
