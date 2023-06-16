@@ -25,8 +25,9 @@ public class Division {
 	}
 	@Override
 	public String toString() {
-		return "Div [x=" + x + ", y=" + y + ", result=" + result + "]";
+		return "Division [x=" + x + ", y=" + y + ", result=" + result + "]";
 	}
+	
 	
 	
 }
