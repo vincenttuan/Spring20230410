@@ -13,9 +13,9 @@ import spring.mvc.session17.entity.Division;
 public class DivisionController {
 	
 	@GetMapping("/")
-	public String index(@ModelAttribute Division div) {
-		int result = div.getX() / div.getY();
-		div.setResult(result);
+	public String index(@ModelAttribute Division division) {
+		int result = division.getX() / division.getY();
+		division.setResult(result);
 		return "session17/division";
 	}
 	
