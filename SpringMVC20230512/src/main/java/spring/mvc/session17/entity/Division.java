@@ -1,31 +1,37 @@
 package spring.mvc.session17.entity;
 
 public class Division {
-	private int x;
-	private int y;
-	private int result;
+	private Integer x;
+	private Integer y;
+	private Integer result;
 	
-	public int getX() {
+	{
+		x = 0;
+		y = 0;
+		result = 0;
+	}
+	
+	public Integer getX() {
 		return x;
 	}
 
-	public void setX(int x) {
+	public void setX(Integer x) {
 		this.x = x;
 	}
 
-	public int getY() {
+	public Integer getY() {
 		return y;
 	}
 
-	public void setY(int y) {
+	public void setY(Integer y) {
 		this.y = y;
 	}
 
-	public int getResult() {
+	public Integer getResult() {
 		return result;
 	}
 
-	public void setResult(int result) {
+	public void setResult(Integer result) {
 		this.result = result;
 	}
 
