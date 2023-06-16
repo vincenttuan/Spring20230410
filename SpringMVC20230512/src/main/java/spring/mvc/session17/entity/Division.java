@@ -1,6 +1,6 @@
 package spring.mvc.session17.entity;
 
-public class Div {
+public class Division {
 	private int x;
 	private int y;
 	private int result;

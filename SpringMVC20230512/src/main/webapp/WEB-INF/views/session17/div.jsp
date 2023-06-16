@@ -14,8 +14,8 @@
 	<body style="padding: 15px">
 		<spform:form class="pure-form" 
 					 method="post" 
-					 modelAttribute="div"
-					 action="${ pageContext.request.contextPath }/mvc/session17/div/">
+					 modelAttribute="division"
+					 action="${ pageContext.request.contextPath }/mvc/session17/division/">
 			<fieldset>
 				<legend>整數 除法計算</legend>
 				分子(x): <spform:input path="x" /><p />
@@ -24,6 +24,6 @@
 			</fieldset>
 			
 		</spform:form>
-		結果: ${ div.result }
+		結果: ${ division.result }
 	</body>
 </html>
