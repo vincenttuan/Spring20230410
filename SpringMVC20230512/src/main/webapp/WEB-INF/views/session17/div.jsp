@@ -12,7 +12,9 @@
 		<title>Insert title here</title>
 	</head>
 	<body style="padding: 15px">
-		<spform:form class="pure-form" method="post" modelAttribute="div"
+		<spform:form class="pure-form" 
+					 method="post" 
+					 modelAttribute="div"
 					 action="${ pageContext.request.contextPath }/mvc/session17/div/">
 			<fieldset>
 				<legend>整數 除法計算</legend>
@@ -22,6 +24,6 @@
 			</fieldset>
 			
 		</spform:form>
-		結果: ${ result }
+		結果: ${ div.result }
 	</body>
 </html>
