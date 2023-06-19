@@ -1,5 +1,8 @@
 package com.spring.mvc.single.repository;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +15,23 @@ import com.spring.mvc.single.entity.User;
  * */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>  {
+	// 預設會有 CRUD
+	// 根據 name 來取得 User: Where name = ?
+	List<User> getByName(String name);
+	
+	// 名字是 OO.. 開頭 and id >= ?
+	// Where name Like ? and id >= ?
+	List<User> getByNameStartingWithAndIdGreaterThenEqual(String name, Long id);
+	
+	// Where id in (?, ? ...)
+	List<User> getByIdIn(List<Long> ids);
+	
+	// Where birth < ?
+	List<User> getByBirthLessThan(Date birth);
+	
+	// Where birth >= ? and birth <= ?
+	// Where birth between ?(含) and ?(含)
+	List<User> getByBirthBetween(Date birthBegin, Date birthEnd);
+	
 	
 }
