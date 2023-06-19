@@ -12,5 +12,5 @@ import com.spring.mvc.single.entity.User;
  * */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>  {
-
+	
 }
