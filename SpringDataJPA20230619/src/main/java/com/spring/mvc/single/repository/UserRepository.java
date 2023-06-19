@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long>  {
 	
 	// 名字是 OO.. 開頭 and id >= ?
 	// Where name Like ? and id >= ?
-	List<User> getByNameStartingWithAndIdGreaterThenEqual(String name, Long id);
+	List<User> getByNameStartingWithAndIdGreaterThanEqual(String name, Long id);
 	
 	// Where id in (?, ? ...)
 	List<User> getByIdIn(List<Long> ids);
