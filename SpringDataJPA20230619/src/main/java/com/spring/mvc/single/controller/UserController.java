@@ -19,7 +19,7 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping
+	@GetMapping("/")
 	public String index(@ModelAttribute User user, Model model) {
 		List<User> users = userRepository.findAll();
 		model.addAttribute("_method", "POST");
