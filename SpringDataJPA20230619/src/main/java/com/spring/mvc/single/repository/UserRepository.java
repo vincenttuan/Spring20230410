@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.spring.mvc.single.entity.User;
@@ -33,5 +34,7 @@ public interface UserRepository extends JpaRepository<User, Long>  {
 	// Where birth between ?(含) and ?(含)
 	List<User> getByBirthBetween(Date birthBegin, Date birthEnd);
 	
+	@Query(value = "select id, name, password, birth from user where id >= ?1 and id <= ?2", nativeQuery = true)
+	List<User> findUser(Long beginId, Long endId);
 	
 }
